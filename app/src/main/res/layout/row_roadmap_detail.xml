@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="@android:color/white"
+    card_view:cardCornerRadius="3dp"
+    card_view:cardElevation="2dp"
+    card_view:cardUseCompatPadding="true"
+    card_view:contentPaddingBottom="5dp"
+    card_view:contentPaddingLeft="5dp"
+    card_view:contentPaddingRight="5dp"
+    card_view:contentPaddingTop="5dp">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/lblTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" android:text="05:30 - 06:00"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+        <TextView
+            android:id="@+id/lblActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descarga"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"/>
+        <TextView
+            android:id="@+id/lblStores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Origen: 1000 Destino: 152"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_below="@+id/lblTime"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:id="@+id/lblKm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Km: 123456 - 123459"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_below="@+id/lblStores"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

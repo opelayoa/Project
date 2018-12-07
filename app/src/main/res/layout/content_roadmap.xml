@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ls="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/switcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/toolbar">
+
+    <ProgressBar
+    android:id="@+id/loading"
+    style="?android:attr/progressBarStyleLarge"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        >
+
+        <com.satsuware.usefulviews.LabelledSpinner
+            android:id="@+id/spnTrucks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ls:labelText="@string/travel_truck"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5">
+                <android.support.design.widget.TextInputEditText
+                    android:visibility="gone"
+                    android:id="@+id/txtTruck"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/travel_truck"
+                    android:inputType="none"
+                    android:textIsSelectable="true"
+                    android:focusable="false"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5">
+                <android.support.design.widget.TextInputEditText
+                    android:visibility="gone"
+                    android:id="@+id/txtScaffold"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/travel_scaffold"
+                    android:inputType="none"
+                    android:textIsSelectable="true"
+                    android:focusable="false"/>
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputEditText
+                android:visibility="gone"
+                android:id="@+id/txtDriver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:hint="@string/travel_driver"
+                android:inputType="none"
+                android:textIsSelectable="true"
+                android:focusable="false"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="LinearLayoutManager"
+                tools:context="com.tiendas3b.almacen.activities.RoadmapActivity"
+                tools:listitem="@layout/row_travel" />
+
+            <!--<com.tiendas3b.almacen.views.RecyclerViewFastScroller-->
+            <!--android:id="@+id/fastscroller"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_alignBottom="@id/list"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignTop="@id/list"/>-->
+
+            <ScrollView
+                android:id="@+id/emptyView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/no_data_available"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:visibility="visible" />
+                </LinearLayout>
+            </ScrollView>
+
+        </RelativeLayout>
+    </LinearLayout>
+</ViewSwitcher>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_cam_scan"
+        android:checkable="true"
+        android:title="@string/action_cam_scan"
+        app:actionViewClass="android.widget.CheckBox"
+        app:showAsAction="never"
+        android:visible="false"/>
+
+    <item android:id="@+id/action_calendar"
+          android:title="@string/action_calendar"
+          android:orderInCategory="100"
+          android:icon="@drawable/ic_date_24dp"
+          app:showAsAction="always"/>
+
+</menu>

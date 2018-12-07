@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/switcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/toolbar"
+    tools:context="com.tiendas3b.almacen.activities.PendingDocumentsDetailActivity"
+    tools:showIn="@layout/activity_pending_documents_detail">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/content_pending_documents_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.widget.LinearLayout
+            android:id="@+id/scrollTable"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.tiendas3b.almacen.views.tables.PendingDocumentsDetailTableView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tableView_columnCount="4"
+                app:tableView_headerColor="@color/colorPrimary"
+                app:tableView_headerElevation="10" />
+
+            <com.tiendas3b.almacen.views.tables.PendingDocumentsDetailTableView
+                android:id="@+id/list2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/list"
+                app:tableView_columnCount="4"
+                app:tableView_headerColor="@color/colorPrimary"
+                app:tableView_headerElevation="10" />
+        </android.widget.LinearLayout>
+
+        <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emptyView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <!--<ScrollView-->
+        <!--android:id="@+id/emptyView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:visibility="gone">-->
+        <!--<LinearLayout android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+        <!--<TextView-->
+        <!--android:id="@+id/emptyView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--andrtextAndPrinttext="@string/no_data_available"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+        <!--android:visibility="visible" />-->
+        <!--</LinearLayout>-->
+        <!--</ScrollView>-->
+
+        <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:layout_width="360dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/list2"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--android:layout_marginBottom="16dp" />-->
+    </android.support.constraint.ConstraintLayout>
+</ViewSwitcher>

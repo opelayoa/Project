@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:name="com.tiendas3b.almacen.fragments.BuysFragment"
+              android:id="@+id/switcher"
+              app:layout_behavior="@string/appbar_scrolling_view_behavior"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <!--<com.tiendas3b.almacen.views.GeneralSwipeRefreshLayout-->
+        <!--android:id="@+id/swipeRefresh"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtSincronizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="38dp"
+            android:text="Camiones"
+            android:textStyle="bold"
+            android:textSize="16dp"/>
+
+        <Button
+            android:id="@+id/btnSincronizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="79dp"
+            android:text="@string/epackage_sincronizar" />
+
+
+        <!--<com.tiendas3b.almacen.views.RecyclerViewFastScroller-->
+        <!--android:id="@+id/fastscroller"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignBottom="@id/list"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignTop="@id/list" />-->
+        <!--android:layout_alignParentRight="true"-->
+
+
+        <!--<ScrollView-->
+        <!--android:id="@+id/emptyView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:visibility="gone">-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/emptyMessage"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--andrtextAndPrinttext="@string/no_data_available"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+        <!--android:visibility="visible" />-->
+        <!--</LinearLayout>-->
+        <!--</ScrollView>-->
+
+
+    </RelativeLayout>
+
+
+    <!--</com.tiendas3b.almacen.views.GeneralSwipeRefreshLayout>-->
+
+</ViewSwitcher>

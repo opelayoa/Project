@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--<group android:id="@+id/menu_top"-->
+           <!--android:checkableBehavior="single">-->
+        <!--<item-->
+            <!--android:id="@+id/nav_receipt"-->
+            <!--android:icon="@drawable/ic_store_24dp"-->
+            <!--android:title="@string/menu_drw_receipt"/>-->
+        <!--<item-->
+            <!--android:id="@+id/nav_picking"-->
+            <!--android:icon="@drawable/ic_store_24dp"-->
+            <!--android:title="@string/menu_drw_picking"/>-->
+        <!--<item-->
+            <!--android:id="@+id/nav_audit"-->
+            <!--android:icon="@drawable/ic_store_24dp"-->
+            <!--android:title="@string/menu_drw_audit"/>-->
+        <!--<item-->
+            <!--android:id="@+id/nav_shipment"-->
+            <!--android:icon="@drawable/ic_store_24dp"-->
+            <!--android:title="@string/menu_drw_shipment"/>-->
+        <!--<item-->
+            <!--android:id="@+id/nav_miscellaneous"-->
+            <!--android:icon="@drawable/ic_store_24dp"-->
+            <!--android:title="@string/menu_drw_miscellaneous"/>-->
+    <!--</group>-->
+
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings_24dp"
+                android:title="@string/menu_drw_settings"/>
+            <item
+                android:id="@+id/nav_sing_out"
+                android:icon="@drawable/ic_input_24dp"
+                android:title="@string/menu_drw_sing_out"/>
+    </group>
+
+</menu>

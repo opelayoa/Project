@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tiendas3b.almacen">
+
+    <uses-feature android:name="android.hardware.camera"/>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+
+    <application
+        android:name=".GlobalState"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <!-- android:extractNativeLibs="false" -->
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="522e80125f2d0eadb1df8770a0614cb93696c7d9"/>
+
+        <activity
+            android:name=".activities.LoginActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <service
+            android:name=".services.SyncCatalogsServices"
+            android:exported="false"/>
+        <service
+            android:name=".services.SyncViewArticlesService"
+            android:exported="false"/>
+
+        <activity
+            android:name=".activities.BuyDetailActivity"
+            android:label="@string/title_activity_buy_detail"
+            android:parentActivityName=".activities.ODCsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.ODCsActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.ODCsActivity"
+            android:label="@string/title_activity_odcs"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.ReceiptSheetActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_receipt_sheet"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.DecreaseActivity"
+            android:label="@string/title_activity_decrease"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.DecreaseCaptureActivity"
+            android:label="@string/title_activity_decrease_capture"
+            android:parentActivityName=".activities.DecreaseActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.DecreaseActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.PhysicalChangeCaptureActivity"
+            android:label="@string/title_activity_physical_change_capture"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <!-- android:parentActivityName=".activities.MainActivity" -->
+        <activity
+            android:name=".activities.TimetableReceiptActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_timetable_receipt"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.OutputTransferenceActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_transference"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustNothing">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.OutputTransferenceCaptureActivity"
+            android:parentActivityName=".activities.OutputTransferenceActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.OutputTransferenceActivity"/>
+        </activity>
+        <activity android:name=".activities.ConstructionActivity"/>
+        <activity
+            android:name=".activities.InputTransferenceActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_input_transference"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.InputTransferenceCaptureActivity"
+            android:parentActivityName=".activities.InputTransferenceActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.InputTransferenceActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.ReceiptSheetDetailActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_receipt_sheet_detail"
+            android:parentActivityName=".activities.TimetableReceiptActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activities.ReturnVendorActivity"
+            android:label="@string/title_activity_return_vendor"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.ReturnVendorActivityBase"
+            android:label="@string/title_activity_physical_change_capture"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.ReturnVendorCaptureActivity"
+            android:parentActivityName=".activities.ReturnVendorActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.ReturnVendorActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.ReceipSheetDetailCaptureActivity"
+            android:label="@string/title_activity_receip_sheet_detail_capture"
+            android:parentActivityName=".activities.ReceiptSheetActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.ReceiptSheetActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.BarcodeActivity"
+            android:label="@string/title_activity_barcode"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".http.PrintDialogActivity"
+            android:label="@string/title_activity_print_dialog"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activities.DecreaseReportActivity"
+            android:label="@string/title_activity_pdf_decrease"
+            android:parentActivityName=".activities.DecreaseCaptureActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.DecreaseCaptureActivity"/>
+        </activity>
+        <activity
+            android:name=".receipt.report.ReceiptReportActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activities.ReturnVendorReportActivity"
+            android:label="@string/title_activity_return_vendor_report"
+            android:parentActivityName=".activities.ReturnVendorActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.ReturnVendorActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.ArticlesResearchActivity"
+            android:label="@string/title_activity_articles_research"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.PhysicalInventoryActivity"
+            android:label="@string/title_activity_physical_inventory"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.ComplaintsActivity"
+            android:label="@string/title_activity_complaints"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.ErrorsActivity"
+            android:label="@string/title_activity_errors"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.SmSupplyActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".shipment.activities.ListTripActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".shipment.activities.ListTripDetailActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".shipment.activities.CheckListActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".shipment.activities.PalletLoadingActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".shipment.activities.PalletCounterActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".shipment.activities.TrackSelectionActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".shipment.activities.StoreDownloadActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".shipment.activities.StoreUploadActivity"
+            android:parentActivityName=".shipment.activities.TrackSelectionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".shipment.activities.WarehouseDownloadActivity"
+            android:parentActivityName=".shipment.activities.TrackSelectionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".shipment.activities.ShipmentConfigActivity"
+            android:parentActivityName=".shipment.activities.TrackSelectionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.TravelDetailActivity"
+            android:parentActivityName=".activities.TravelActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".shipment.activities.ListTripActivity" />
+        </activity>
+
+        <!-- <service -->
+        <!-- android:name=".sync.authenticator.GenericAccountService" -->
+        <!-- android:enabled="false" -->
+        <!-- android:exported="false"> -->
+        <!-- </service> -->
+        <!--
+        This implements the account we'll use as an attachment point for our SyncAdapter. Since
+        our SyncAdapter doesn't need to authenticate the current user (it just fetches a public RSS
+        feed), this account's implementation is largely empty.
+
+        It's also possible to attach a SyncAdapter to an existing account provided by another
+        package. In that case, this element could be omitted here.
+        -->
+        <service android:name=".sync.authenticator.GenericAccountService">
+
+            <!-- Required filter used by the system to launch our account service. -->
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <!-- This points to an XMLf ile which describes our account service. -->
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator"/>
+        </service>
+
+        <!--
+        ContentProvider to store feed data.
+
+        The "authorities" here are defined as part of a ContentProvider interface. It's used here
+        as an attachment point for the SyncAdapter. See res/xml/syncadapter.xml and
+        SyncService.java.
+
+        Since this ContentProvider is not exported, it will not be accessible outside of this app's
+        package.
+        -->
+
+
+        <!-- <provider -->
+        <!-- android:name=".db.dao.RegionContentProvider" -->
+        <!-- android:authorities="com.tiendas3b.almacen.db.dao.provider" -->
+        <!-- android:exported="false" -->
+        <!-- android:syncable="true"/> -->
+        <!-- <provider -->
+        <!-- android:name=".db.dao.VArticleContentProvider" -->
+        <!-- android:authorities="com.tiendas3b.almacen.db.dao.provider" -->
+        <!-- android:exported="false" -->
+        <!-- android:syncable="true"/> -->
+        <!-- <provider -->
+        <!-- android:name=".db.dao.UnitContentProvider" -->
+        <!-- android:authorities="com.tiendas3b.almacen.db.dao.provider" -->
+        <!-- android:exported="false" -->
+        <!-- android:syncable="true"/> -->
+        <!-- <provider -->
+        <!-- android:name=".db.dao.StoreContentProvider" -->
+        <!-- android:authorities="com.tiendas3b.almacen.db.dao.provider" -->
+        <!-- android:exported="false" -->
+        <!-- android:syncable="true"/> -->
+        <!-- <provider -->
+        <!-- android:name=".db.dao.ProviderContentProvider" -->
+        <!-- android:authorities="com.tiendas3b.almacen.db.dao.provider" -->
+        <!-- android:exported="false" -->
+        <!-- android:syncable="true"/> -->
+        <!-- <provider -->
+        <!-- android:name=".db.dao.ObservationTypeContentProvider" -->
+        <!-- android:authorities="com.tiendas3b.almacen.db.dao.provider" -->
+        <!-- android:exported="false" -->
+        <!-- android:syncable="true"/> -->
+        <provider
+            android:name=".db.dao.InputTransferenceContentProvider"
+            android:authorities="com.tiendas3b.almacen.db.dao.provider"
+            android:exported="false"
+            android:syncable="true"/>
+        <!-- <provider -->
+        <!-- android:name=".db.dao.ArticleTransferenceContentProvider" -->
+        <!-- android:authorities="com.tiendas3b.almacen.db.dao.provider" -->
+        <!-- android:exported="false" -->
+        <!-- android:syncable="true"/> -->
+        <!-- <provider -->
+        <!-- android:name=".db.dao.ArticleDecreaseContentProvider" -->
+        <!-- android:authorities="com.tiendas3b.almacen.db.dao.provider" -->
+        <!-- android:exported="false" -->
+        <!-- android:syncable="true"/> -->
+
+
+        <!--
+        This service implements our SyncAdapter. It needs to be exported, so that the system
+        sync framework can access it.
+        -->
+        <service
+            android:name=".sync.adapter.SyncService"
+            android:exported="true">
+
+            <!--
+            This intent filter is required. It allows the system to launch our sync service
+            as needed.
+            -->
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <!-- This points to a required XML file which describes our SyncAdapter. -->
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter"/>
+        </service>
+
+        <activity
+            android:name=".activities.RouteCaptureActivity"
+            android:label="@string/title_activity_route_capture"
+            android:parentActivityName=".activities.RoadmapActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.RoadmapActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.TravelCaptureActivity"
+            android:label="@string/title_activity_travel_capture"
+            android:parentActivityName=".activities.RoadmapActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.RoadmapActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.RoadmapActivity"
+            android:label="@string/title_activity_roadmap"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.RoadmapDetailActivity"
+            android:label="@string/title_activity_roadmap_detail"
+            android:parentActivityName=".activities.RoadmapActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.RoadmapActivity"/>
+        </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"/>
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode"/>
+
+        <activity
+            android:name=".activities.ShipmentMapActivity"
+            android:label="@string/title_activity_shipment_map">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.PendingDocumentsActivity"
+            android:label="@string/title_activity_pending_documents"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+
+        <service
+            android:name=".services.TrackingService"
+            android:enabled="true"
+            android:exported="false"/>
+        <service
+            android:name=".util.FakeService"
+            android:enabled="true"
+            android:exported="false"/>
+        <!-- <service -->
+        <!-- android:name=".services.ForegroundEnablingService" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="false" /> -->
+        <service
+            android:name=".util.RealService"
+            android:enabled="true"
+            android:exported="true"/>
+        <service
+            android:name=".services.LocationService"
+            android:exported="true"/>
+        <service
+            android:name=".services.GeofenceTransitionsIntentService"
+            android:exported="true"/>
+
+        <activity
+            android:name=".activities.TrackingActivity"
+            android:label="@string/title_activity_tracking"
+            android:parentActivityName=".activities.SettingsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.SettingsActivity"/>
+        </activity>
+
+        <receiver
+            android:name=".receivers.LocationProviderReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".receivers.StartupReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".receivers.ShutdownReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".activities.PendingDocumentsDetailActivity"
+            android:label="@string/title_activity_pending_documents_detail"
+            android:parentActivityName=".activities.PendingDocumentsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.PendingDocumentsActivity"/>
+        </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.tiendas3b.almacen.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
+        <activity
+            android:name=".shipment.day.sheet.DaySheetActivity"
+            android:label="@string/title_activity_day_sheet"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".shipment.transference.InputTransferenceActivity"
+            android:label="@string/title_activity_input_transference"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".receipt.sheet.capture.ReceiptSheetHeaderCaptureActivity"
+            android:label="@string/title_activity_receipt_sheet_header_capture"
+            android:parentActivityName=".activities.ReceiptSheetActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.ReceiptSheetActivity"/>
+        </activity>
+
+        <service
+            android:name=".services.receipt.ReceiptDownloads"
+            android:exported="false"/>
+
+        <activity
+            android:name=".picking.orders.TimetablePickingActivity"
+            android:label="@string/title_activity_orders_stores"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".picking.orders.PickingCaptureActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="@string/title_activity_picking_capture"
+            android:parentActivityName=".picking.orders.TimetablePickingActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.picking.orders.TimetablePickingActivity"/>
+        </activity>
+        <activity
+            android:name=".receipt.epackage.EpackageActivity"
+            android:label="@string/title_activity_epackage"
+            android:parentActivityName=".receipt.epackage.EpackageProviderActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".receipt.express.ExpressReceiptActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="@string/title_activity_express_receipt"
+            android:parentActivityName=".receipt.express.ProvidersActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.receipt.express.ProvidersActivity"/>
+        </activity>
+        <activity
+            android:name=".picking.epackage.CageInActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="@string/title_activity_cage_in"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".picking.epackage.EpackageStoresActivity"
+            android:label="@string/title_picking"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".picking.epackage.PickingEpackageActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="@string/title_activity_picking_epackage"
+            android:parentActivityName=".picking.epackage.EpackageStoresActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.picking.epackage.EpackageStoresActivity"/>
+        </activity>
+        <activity
+            android:name=".shipment.epackage.EpackageStoresActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="@string/title_activity_shipment_epackage"
+            android:parentActivityName=".activities.ShipmentMapActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.ShipmentMapActivity"/>
+        </activity>
+        <activity
+            android:name=".shipment.epackage.ShipmentEpackageActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="@string/title_activity_shipment_epackage"
+            android:parentActivityName=".shipment.epackage.EpackageStoresActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.shipment.epackage.EpackageStoresActivity"/>
+        </activity>
+        <activity
+            android:name=".shipment.epackage.LeaveActivity"
+            android:label="@string/title_activity_leave"
+            android:parentActivityName=".activities.ShipmentMapActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.ShipmentMapActivity"/>
+        </activity>
+        <activity
+            android:name=".shipment.epackage.EpackageDownloadStoresActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="@string/title_activity_shipment_epackage"
+            android:parentActivityName=".activities.ShipmentMapActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.ShipmentMapActivity"/>
+        </activity>
+        <activity
+            android:name=".shipment.epackage.DownloadEpackageActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="@string/title_activity_shipment_epackage"
+            android:parentActivityName=".shipment.epackage.EpackageDownloadStoresActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.shipment.epackage.EpackageDownloadStoresActivity"/>
+        </activity>
+        <activity
+            android:name=".shipment.epackage.DownloadResumeEpackageActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="@string/title_activity_shipment_epackage"
+            android:parentActivityName=".shipment.epackage.EpackageDownloadStoresActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.shipment.epackage.EpackageDownloadStoresActivity"/>
+        </activity>
+        <activity
+            android:name=".shipment.epackage.SincronizateActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="@string/title_activity_shipment_epackage"
+            android:parentActivityName=".activities.ShipmentMapActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.ShipmentMapActivity"/>
+        </activity>
+        <activity
+            android:name=".receipt.epackage.EpackageProviderActivity"
+            android:label="@string/title_activity_epackage_provider"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".picking.orders.PickingResumeActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="@string/title_activity_picking_resume"
+            android:parentActivityName=".picking.orders.PickingCaptureActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.picking.orders.PickingCaptureActivity"/>
+        </activity>
+        <activity
+            android:name=".audit.epackage.StowageActivity"
+            android:label="@string/title_activity_stowage"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".miscellaneous.StoreReceiptEpackageActivity"
+            android:label="@string/title_activity_store_receipt_epackage"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".receipt.express.ProvidersActivity"
+            android:label="@string/title_activity_providers"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+
+        <receiver
+            android:name=".receipt.express.AlarmNotificationReceiver"
+            android:enabled="true"
+            android:exported="false">
+        </receiver>
+
+        <activity
+            android:name=".shipment.vrp.TravelsActivity"
+            android:label="@string/title_activity_travels"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".receipt.express.PalletizedReceiptActivity"
+            android:parentActivityName=".receipt.express.ProvidersActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.receipt.express.ProvidersActivity"/>
+        </activity>
+        <activity
+            android:name=".receipt.bulk.InBulkReceiptActivity"
+            android:label="A granel"
+            android:parentActivityName=".receipt.express.ProvidersActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <!-- <meta-data -->
+            <!-- android:name="android.support.PARENT_ACTIVITY" -->
+            <!-- android:value="com.tiendas3b.almacen.receipt.express.ProvidersActivity"/> -->
+        </activity>
+        <activity
+            android:name=".picking.orders.ScanResumeActivity"
+            android:label="@string/title_activity_scan_resume"
+            android:parentActivityName=".picking.orders.PickingResumeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.picking.orders.PickingResumeActivity"/>
+        </activity>
+        <activity
+            android:name=".shipment.vrp.VrpActivity"
+            android:label="@string/title_activity_vrp"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.activities.MainActivity"/>
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".receipt.express2.ExpressReceiptActivity"
+            android:label="@string/title_activity_express_receipt"
+            android:parentActivityName=".receipt.express.ProvidersActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.receipt.express.ProvidersActivity"/>
+        </activity>
+        <activity
+            android:name=".picking.orders.timetable.TimetableStatusActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".receipt.express2.tabs.ReceiptTimetableStatusActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".receipt.edit.ReceiptEditTimetableActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".receipt.edit.EditBuyDetailActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.EditReceiptFolio"
+            android:parentActivityName=".receipt.edit.ReceiptEditTimetableActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.receipt.edit.ReceiptEditTimetableActivity" />
+        </activity>
+        <activity
+            android:name=".activities.EditReceiptComments"
+            android:parentActivityName=".receipt.edit.ReceiptEditTimetableActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.receipt.edit.ReceiptEditTimetableActivity" />
+        </activity>
+        <activity
+            android:name=".activities.EditReceiptDecrease"
+            android:parentActivityName=".receipt.edit.ReceiptEditTimetableActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.receipt.edit.ReceiptEditTimetableActivity" />
+        </activity>
+        <activity
+            android:name=".activities.EditReceiptBoxes"
+            android:parentActivityName=".receipt.edit.ReceiptEditTimetableActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tiendas3b.almacen.receipt.edit.ReceiptEditTimetableActivity" />
+        </activity>
+
+    </application>
+
+</manifest>

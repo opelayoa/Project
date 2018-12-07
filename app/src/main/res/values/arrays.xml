@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="groups">
+        <item>GA</item>
+        <item>REC</item>
+        <item>AUDI</item>
+        <item>PCK</item>
+        <item>EMB</item>
+        <item>FINA</item>
+    </string-array>
+    <string-array name="pref_example_list_titles">
+        <item>1000-CI2</item>
+        <item>1001-RYS</item>
+        <item>1002-BAR</item>
+        <item>1003-MET</item>
+        <item>1004-YAU</item>
+        <item>1005-TEX</item>
+    </string-array>
+    <string-array name="pref_example_list_titles_test">
+        <item>1000-CI2</item>
+        <item>1001-RYS</item>
+        <item>1002-BAR</item>
+        <item>1003-MET</item>
+        <item>1004-YAU</item>
+        <item>1005-TEX</item>
+        <!--<item>1000 - Feria de Marcas</item>-->
+        <item>0000-LOC</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1000</item>
+        <item>1001</item>
+        <item>1002</item>
+        <item>1003</item>
+        <item>1004</item>
+        <item>1005</item>
+    </string-array>
+    <string-array name="truck_scaffold_size_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+    </string-array>
+    <string-array name="num_travel_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="truck_scaffold_download_size_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+    </string-array>
+    <string-array name="receive_staff_size_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="receive_platform_6">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="receive_platform_5">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="receive_platform_4">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="yes_no">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+</resources>

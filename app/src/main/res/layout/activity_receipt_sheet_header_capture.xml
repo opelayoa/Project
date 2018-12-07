@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintBottom_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/activity_receipt_sheet_header_capture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.tiendas3b.almacen.receipt.sheet.capture.ReceiptSheetHeaderCaptureActivity">
+
+        <TextView
+            android:id="@+id/lblProviderName"
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/dummy_text_provider"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lblOdc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/dummy_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblProviderName" />
+
+        <Switch
+            android:id="@+id/swtArrive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:checked="true"
+            android:text="@string/rsheet_arrived"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toRightOf="@+id/lblOdc"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblProviderName" />
+
+        <com.satsuware.usefulviews.LabelledSpinner
+            android:id="@+id/spnLevel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:labelText="@string/rsheet_level"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline4"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <com.satsuware.usefulviews.LabelledSpinner
+            android:id="@+id/spnDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:labelText="@string/rsheet_date_time"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="62dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="143dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"
+            tools:layout_editor_absoluteX="192dp"
+            tools:layout_editor_absoluteY="81dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilDateHr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/spnLevel">
+
+            <EditText
+                android:id="@+id/txtDateHr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:focusable="false"
+                android:hint="@string/rsheet_date_time"
+                tools:ignore="TextFields"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilArriveHr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spnDate">
+
+            <EditText
+                android:id="@+id/txtArriveHr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="1234567890:"
+                android:hint="@string/rsheet_arrive_time"
+                android:inputType="time"
+                android:maxLength="5" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilDeliveryHr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/tilDateHr">
+
+            <EditText
+                android:id="@+id/txtDeliveryHr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="1234567890:"
+                android:focusable="false"
+                android:hint="@string/rsheet_delivery_time"
+                android:inputType="time"
+                android:maxLength="5" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilDepartureHr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilArriveHr">
+
+            <EditText
+                android:id="@+id/txtDepartureHr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="1234567890:"
+                android:focusable="false"
+                android:hint="@string/rsheet_departure_time"
+                android:inputType="time"
+                android:maxLength="5" />
+        </android.support.design.widget.TextInputLayout>
+
+        <com.satsuware.usefulviews.LabelledSpinner
+            android:id="@+id/spnStaffNum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:labelText="@string/rsheet_staff_num"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/tilDeliveryHr" />
+
+        <com.satsuware.usefulviews.LabelledSpinner
+            android:id="@+id/spnPlatform"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:labelText="@string/rsheet_platform"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilDepartureHr" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilDeliveryman"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/spnStaffNum">
+
+            <EditText
+                android:id="@+id/txtDeliveryman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/alphabet"
+                android:hint="@string/rsheet_deliveryman"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions"
+                android:maxLength="@integer/person_name_max_length"
+                android:nextFocusDown="@+id/txtReceiver" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilReceiver"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spnPlatform">
+
+            <EditText
+                android:id="@id/txtReceiver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/alphabet"
+                android:hint="@string/rsheet_receiver"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions"
+                android:maxLength="@integer/person_name_max_length"
+                android:nextFocusDown="@+id/txtFolio" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilFolio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/tilDeliveryman">
+
+            <EditText
+                android:id="@+id/txtFolio"
+                android:focusable="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/alphanumeric"
+                android:hint="@string/rsheet_bill_folio"
+                android:imeOptions="actionNext"
+                android:maxLength="15" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilReceiver">
+
+            <EditText
+                android:id="@+id/txtTotal"
+                android:focusable="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/numbers"
+                android:hint="@string/rsheet_total"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:nextFocusDown="@+id/txtIeps" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilSubtotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilReceiver">
+
+            <EditText
+                android:id="@+id/txtSubtotal"
+                android:focusable="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/numbers"
+                android:hint="@string/rsheet_subtotal"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:visibility="gone"
+                android:nextFocusDown="@+id/txtIeps" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilIeps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/tilFolio">
+
+            <EditText
+                android:id="@+id/txtIeps"
+                android:focusable="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/numbers"
+                android:hint="@string/rsheet_ieps"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:maxLength="15"
+                android:visibility="gone"
+                android:nextFocusDown="@+id/txtIva" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilIva"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/guideline4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilSubtotal">
+
+            <EditText
+                android:id="@+id/txtIva"
+                android:focusable="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="@string/money"
+                android:hint="@string/rsheet_iva"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:visibility="gone"
+                android:maxLength="15" />
+        </android.support.design.widget.TextInputLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="yes_no">
+        <item>Sí</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="good_bad">
+        <item>Bueno</item>
+        <item>Malo</item>
+    </string-array>
+    <string-array name="picking_options">
+        <item>Correcto</item>
+        <item>Stockout</item>
+        <!--<item>Insuficiente</item>-->
+        <item>No apto para venta</item>
+        <item>Otro</item>
+    </string-array>
+
+    <string-array name="days_of_week">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miércoles</item>
+        <item>Jueves</item>
+        <item>Viernes</item>
+        <item>Sábado</item>
+    </string-array>
+</resources>

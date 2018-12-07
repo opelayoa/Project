@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="@android:color/white"
+    card_view:cardCornerRadius="3dp"
+    card_view:cardElevation="2dp"
+    card_view:cardUseCompatPadding="true"
+    card_view:contentPaddingBottom="5dp"
+    card_view:contentPaddingLeft="5dp"
+    card_view:contentPaddingRight="5dp"
+    card_view:contentPaddingTop="5dp">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Viaje:"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/lblTravel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintStart_toEndOf="@+id/textView3"
+            card_view:layout_constraintTop_toTopOf="parent"
+            tools:text="1"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Origen:"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/textView3"/>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:text="Destino:"
+            card_view:layout_constraintStart_toEndOf="@+id/lblOrigin"
+            card_view:layout_constraintTop_toBottomOf="@+id/lblTravel"/>
+
+        <TextView
+            android:id="@+id/lblOrigin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintStart_toEndOf="@+id/textView4"
+            card_view:layout_constraintTop_toBottomOf="@+id/lblTravel"
+            tools:text="1000"/>
+
+        <TextView
+            android:id="@+id/lblDestination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintStart_toEndOf="@+id/textView5"
+            card_view:layout_constraintTop_toBottomOf="@+id/lblTravel"
+            tools:text="1234"/>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher
+    android:id="@+id/switcher"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:layout_below="@id/toolbar">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+        <android.widget.LinearLayout
+            android:id="@+id/scrollTable"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:focusableInTouchMode="false">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/txtAtmRefSum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:hint="@string/sm_supply_atm_ref_sum"
+                        android:inputType="none"
+                        android:textIsSelectable="true"
+                        android:layout_gravity="center_horizontal"
+                        android:minWidth="60dp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:focusableInTouchMode="false">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/txtIclaveSum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:hint="@string/sm_supply_iclave_sum"
+                        android:inputType="none"
+                        android:textIsSelectable="true"
+                        android:layout_gravity="center_horizontal"
+                        android:minWidth="60dp" />
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:focusableInTouchMode="false">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/txtAmountSum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:hint="@string/sm_supply_amount_sum"
+                        android:inputType="none"
+                        android:textIsSelectable="true"
+                        android:layout_gravity="center_horizontal" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:focusableInTouchMode="false">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/txtCostSum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:hint="@string/sm_supply_cost_sum"
+                        android:inputType="none"
+                        android:textIsSelectable="true"
+                        android:layout_gravity="center_horizontal" />
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:focusableInTouchMode="false">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/txtSaleSum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:hint="@string/sm_supply_sale_sum"
+                        android:inputType="none"
+                        android:textIsSelectable="true"
+                        android:layout_gravity="center_horizontal" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <android.widget.HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.tiendas3b.almacen.views.tables.SmSupplyTableView
+                    android:id="@+id/list"
+                    android:layout_width="1000dp"
+                    android:layout_height="match_parent"
+                    custom:tableView_columnCount="12"
+                    custom:tableView_headerColor="@color/colorPrimary"
+                    custom:tableView_headerElevation="10"/>
+                <!--android:divider="@android:color/black"-->
+                <!--android:dividerHeight="1dip"-->
+            </android.widget.HorizontalScrollView>
+
+        </android.widget.LinearLayout>
+
+        <ScrollView
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/no_data_available"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="visible"/>
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+
+</ViewSwitcher>

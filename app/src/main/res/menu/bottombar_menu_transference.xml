@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bb_menu_recyclable"
+        android:icon="@drawable/ic_recyclable_24dp"
+        android:title="@string/menu_reciclable" />
+    <item
+        android:id="@+id/bb_menu_returnable"
+        android:icon="@drawable/ic_returnable_24dp"
+        android:title="@string/menu_retornable" />
+    <item
+        android:id="@+id/bb_menu_io"
+        android:icon="@drawable/ic_io_24dp"
+        android:title="@string/menu_io" />
+    <item
+        android:id="@+id/bb_menu_rm"
+        android:icon="@drawable/ic_rm_24dp"
+        android:title="@string/menu_rm" />
+    <item
+        android:id="@+id/bb_menu_product"
+        android:icon="@drawable/ic_product_24dp"
+        android:title="@string/menu_producto" />
+</menu>

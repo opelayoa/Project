@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="person_name_max_length">80</integer>
+    <integer name="max_length_receive">7</integer>
+</resources>

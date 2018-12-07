@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/pdf"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
+              android:layout_width="8.5in"
+              android:layout_height="11in"
+              android:orientation="vertical"
+              android:padding="10mm">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/report_border"
+        android:orientation="horizontal" android:padding="2mm">
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="16mm"
+            android:layout_height="16mm" android:src="@mipmap/ic_launcher"
+            android:layout_gravity="center_vertical"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/lblRegion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="1002Barrientos"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="5mm"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/tiendas3bSAdeCV"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="5mm"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/lblAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Av. Gustavo Baz, 54 Col."
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2mm"
+        android:orientation="horizontal" android:weightSum="1"
+    >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" android:layout_weight="0.5"
+            android:background="@drawable/report_border"
+            android:paddingLeft="4mm" android:paddingRight="4mm"
+            android:paddingTop="2mm" android:paddingBottom="2mm">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/lblVendorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Nombre proveedor"
+                    android:textColor="@android:color/black"
+                    android:textSize="4mm"
+                    android:visibility="visible" android:textStyle="bold"/>
+                <TextView android:id="@+id/lblVendorId"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:text="(pclave)"
+                          android:textColor="@android:color/black"
+                          android:textSize="4mm" android:visibility="visible"
+                          android:textStyle="bold" android:gravity="end"/>
+            </LinearLayout>
+            <TextView android:id="@+id/lblVendorAddress"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="center" android:text="Una calle en una colonia ah! se me olvidaba el número, delegación y código postal ;)"
+                      android:textColor="@android:color/black"
+                      android:textSize="4mm" android:visibility="visible"
+                      android:textStyle="bold"
+                      android:textAlignment="textStart"/>
+            <TextView android:id="@+id/lblPhones"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="center"
+                      android:text="Tels: 1234-5678, 9876-5432"
+                      android:textColor="@android:color/black"
+                      android:textSize="4mm" android:visibility="visible"
+                      android:textStyle="bold"
+                      android:textAlignment="textStart"/>
+            <LinearLayout android:orientation="horizontal"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content">
+                <TextView android:id="@+id/lblAtention"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:gravity="center" android:text="Atención: nombre apellido"
+                          android:textColor="@android:color/black"
+                          android:textSize="4mm" android:visibility="visible"
+                          android:textStyle="bold"/>
+                <TextView android:id="@+id/lblPlazo"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:text="Plazo: 75 días"
+                          android:textColor="@android:color/black"
+                          android:textSize="4mm" android:visibility="visible"
+                          android:textStyle="bold" android:gravity="end"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@drawable/report_border"
+            android:orientation="vertical"
+            android:paddingBottom="2mm" android:paddingLeft="4mm"
+            android:paddingRight="4mm" android:paddingTop="2mm"
+            android:layout_marginLeft="2mm">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1"
+            >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="Fecha / Hora:"
+                    android:textColor="@android:color/black"
+                    android:textSize="4mm"/>
+                <EditText
+                    android:id="@+id/txtDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="31/12/2016 23:59:59"
+                    android:textSize="4mm"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="Folio:"
+                    android:textColor="@android:color/black"
+                    android:textSize="4mm"/>
+                <EditText
+                    android:id="@+id/txtFolio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="DP-438"
+                    android:textSize="4mm"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="Movimiento:"
+                    android:textColor="@android:color/black"
+                    android:textSize="4mm"/>
+                <EditText
+                    android:id="@+id/txtAuthorized"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="DEVOLUCIÓN PROVEEDOR"
+                    android:textSize="4mm"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="No. factura:"
+                    android:textColor="@android:color/black"
+                    android:textSize="4mm"/>
+                <EditText
+                    android:id="@+id/txtFactura"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="1002438"
+                    android:textSize="4mm"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <com.tiendas3b.almacen.views.tables.DecreaseReportTableView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5mm"
+        android:visibility="visible"
+        custom:tableView_columnCount="6"
+        custom:tableView_headerColor="@color/colorPrimary"/>
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+    <!--andrtextAndPrinttext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et molestie ex, in feugiat neque. Maecenas dapibus a dui eget aliquam. Vestibulum id urna eros. Ut fermentum est non porta tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas purus metus, tempor at eros et, auctor tempor lorem. Proin volutpat finibus faucibus. Nullam sagittis varius ornare. Vivamus vitae volutpat eros. Aenean eleifend eros ut tellus iaculis, finibus blandit augue tincidunt. Donec elementum blandit lorem ut finibus. Ut auctor sodales tincidunt.  Suspendisse scelerisque eget odio at laoreet. Quisque vel condimentum augue. Proin pulvinar lectus vel justo sagittis, non volutpat turpis blandit. Aliquam porttitor tortor eleifend massa convallis, ac consectetur nisl malesuada. Proin nisl ipsum, blandit eget felis et, imperdiet finibus turpis. Nullam non ornare erat, vehicula vehicula sapien. Nunc eget urna a est convallis vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.  In sagittis ante in metus aliquam sagittis. Suspendisse vel augue ut dui auctor placerat nec a augue. Integer dapibus volutpat enim et placerat. Nunc nec tempor ante, ac mollis magna. Proin et odio nec mauris rhoncus malesuada quis quis diam. Maecenas in scelerisque ipsum. Pellentesque venenatis enim vitae libero porttitor, in porttitor nisl pharetra. Praesent gravida, mi ut fermentum gravida, ipsum libero mollis diam, quis mattis velit ex vitae diam. Integer nec eleifend lacus. Ut gravida sodales justo eget finibus. Integer id auctor lacus. Pellentesque nec luctus diam, non luctus purus.  Morbi vel dui vehicula, vulputate orci eget, imperdiet ex. Aliquam varius ultricies efficitur. Nunc purus nisl, rhoncus eleifend lacus sit amet, malesuada sollicitudin eros. Pellentesque ut rutrum velit, sed pretium tellus. Nunc dignissim ullamcorper auctor. Nulla facilisi. Fusce facilisis, orci vitae tempor ullamcorper, ipsum nunc volutpat lacus, eu eleifend ligula ipsum a erat. Integer ultrices elit ac molestie finibus. Vestibulum ut elit tincidunt, luctus magna id, tempus tortor. Etiam at nisl vitae arcu iaculis feugiat eget a erat. Integer feugiat augue sed ipsum pharetra, nec facilisis augue blandit. Praesent ornare faucibus nisi id faucibus. Cras cursus metus ac massa lobortis tempor.  Fusce venenatis aliquet purus. Integer consectetur risus sit amet lorem euismod hendrerit. Mauris non dui at ex dapibus luctus et quis sapien. Aliquam ultricies turpis eget velit lacinia, ac consectetur neque iaculis. Nunc in congue risus. Nunc volutpat tortor dui, quis ultricies libero tempus ut. Vivamus vestibulum diam aliquet mauris auctor rutrum. Pellentesque molestie luctus purus eu vulputate. Etiam pellentesque, felis id sodales tempor, urna dolor faucibus odio, ac malesuada sem nulla consequat lacus. Fusce tempus vitae leo sit amet laoreet."-->
+    <!--android:id="@+id/textViewx"/>-->
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:text="Documento valido siempre y cuando lleve el sello y la firma del gerente o subgerenteen original."
+        android:textSize="4mm" android:textStyle="bold"/>
+</LinearLayout>

@@ -1,0 +1,172 @@
+<resources>
+    <string name="app_name">Almacen</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_region">Región</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_user">This email address is invalid</string>
+    <string name="error_invalid_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for
+        providing email
+        completions."
+    </string>
+    <string name="des_logo_3b" translatable="false">logo3b</string>
+    <string name="title_activity_borrame">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="title_activity_main">Test</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="dummy_text">dummy</string>
+    <string name="caption">Tiendas 3B</string>
+    <string name="error_sync_provider">error sync provider</string>
+    <string name="error_sync_region">error sync region</string>
+    <string name="error_sync_barcode">error sync barcode</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dummy_text_provider">La costeña</string>
+    <string name="error_odc">error get buys</string>
+    <string name="title_activity_buy_detail">BuyDetailActivity</string>
+    <string name="dummy_text_tittle">Bebida citrus fresh jumex-600 ml</string>
+    <string name="error_sync_timetable_receipt">error sync timetable receipt
+    </string>
+    <string name="title_activity_receipt">ReceiptActivity</string>
+    <string name="title_activity_odcs">ODCsActivity</string>
+    <string name="title_activity_receipt_sheet">Resumen de Recibo</string>
+    <string name="error_download_receipt_sheets">error download receipt sheets
+    </string>
+    <string name="title_activity_decrease">Merma Global</string>
+    <string name="title_activity_decrease_capture">Captura de Merma</string>
+    <string name="zero">0</string>
+    <string name="error_sync_articles_view">error sync articles view</string>
+    <string name="title_activity_timetable_receipt">Cronograma Recibo</string>
+    <string name="title_activity_settings">Configuración</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_voice_switch">Habilitar voz</string>
+    <string name="pref_description_voice_switch">Habilita reconocimiento y asistente de voz</string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_region">Seleccionar Región</string>
+    <string name="title_activity_transference">Transferencias Salida</string>
+    <string name="error_sync_stores">error sync stores</string>
+    <string name="error_sync_articles_transference_view">error sync articles
+        transference
+    </string>
+    <string name="title_activity_input_transference">Transferencia de Tienda
+    </string>
+    <string name="title_activity_receipt_sheet_detail">Detalle ODC</string>
+    <string name="title_activity_return_vendor">Devolución de Proveedor</string>
+    <string name="title_activity_return_vendor_capture">Devolución de
+        Proveedor
+    </string>
+    <string name="title_activity_receip_sheet_detail_capture">Recibo</string>
+    <string name="title_activity_barcode">Código de barras</string>
+    <string name="title_activity_print_dialog">PrintDialogActivity</string>
+    <string name="title_activity_pdf_decrease">Reporte de Merma</string>
+    <string name="tiendas3bSAdeCV">Tiendas Tres B, S. A. de C. V.</string>
+    <string name="title_activity_return_vendor_report">
+        ReturnVendorReportActivity
+    </string>
+    <string name="root_folder">/tiendas3b/almacen/</string>
+    <string name="decrease_folder">ME</string>
+    <string name="renturn_vendor_folder">DP</string>
+    <string name="pdf_me_folio">ME</string>
+    <string name="pdf_dp_folio">DP</string>
+    <string name="pdf_ta_folio">TA</string>
+    <string name="pdf_te_folio">TE</string>
+    <string name="pdf_em_folio">EM</string>
+    <string name="title_activity_articles_research">ArticlesResearchActivity
+    </string>
+    <string name="title_activity_physical_inventory">PhysicalInventoryActivity
+    </string>
+    <string name="title_activity_complaints">ComplaintsActivity</string>
+    <string name="title_activity_errors">Errores</string>
+    <string name="title_activity_shipment_map">Mapa</string>
+
+
+    <string name="geofences_added">Geofences added</string>
+    <string name="geofences_removed">Geofences removed</string>
+
+    <!-- Error strings -->
+    <string name="not_connected">GoogleApiClient no yet connected. Try again.</string>
+    <string name="geofence_not_available">Geofence service is not available now</string>
+    <string name="geofence_too_many_geofences">Your app has registered too many geofences</string>
+    <string name="geofence_too_many_pending_intents">
+        You have provided too many PendingIntents to the addGeofences() call
+    </string>
+    <string name="unknown_geofence_error">
+        Unknown error: the Geofence service is not available now
+    </string>
+    <string name="geofence_transition_invalid_type">
+        Geofence transition error: invalid transition type %1$d
+    </string>
+
+    <!-- Transition type strings -->
+    <string name="geofence_transition_entered">Entered</string>
+    <string name="geofence_transition_exited">Exited</string>
+    <string name="unknown_geofence_transition">Unknown Transition</string>
+
+    <string name="geofence_transition_notification_text">Click notification to return to app</string>
+    <string name="title_activity_tracking">En ruta</string>
+    <string name="title_activity_pending_documents_detail">Detalle</string>
+    <string name="title_activity_day_sheet">Hoja del día</string>
+    <string name="menu_io"><![CDATA[In & Out]]></string>
+    <string name="alphabet">qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM áéíóúÁÉÍÚÓ</string>
+    <string name="rsheet_deliveryman">Quien entrega</string>
+    <string name="money">1234567890.,</string>
+    <string name="alphanumeric">qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM áéíóúÁÉÍÚÓ1234567890</string>
+    <string name="money_empty">$0.00</string>
+    <string name="numbers">1234567890</string>
+    <string name="buy_lote">*Lote</string>
+    <string name="buy_obs">Obs</string>
+    <string name="buy_obs_log">Obs Log</string>
+    <string name="buy_type">Tipo</string>
+    <string name="buy_iclave">Iclave</string>
+    <string name="title_activity_picking_capture">Picking</string>
+    <string name="receipt_epackage">E-package</string>
+    <string name="title_activity_epackage">Recibo E-package</string>
+    <string name="epackage_provider">Proveedor</string>
+    <string name="title_activity_express_receipt">Recibo Exprés</string>
+    <string name="hint_scan_barcode">Escanear código de barras</string>
+    <string name="pdf_em">Entrega de mercancía</string>
+    <string name="receipt_folder">recibo</string>
+    <string name="picking_folder">picking</string>
+    <string name="title_activity_picking_epackage">Picking E-package</string>
+    <string name="title_activity_epackage_provider">Epackage Recibo</string>
+    <string name="title_activity_picking_resume">Resumen picking</string>
+    <string name="title_activity_cage_in">Recepción reja</string>
+    <string name="area">Area</string>
+    <string name="pasillo">Pasillo</string>
+    <string name="rack">Rack</string>
+    <string name="camion">Camión</string>
+    <string name="title_activity_stowage">Estiba</string>
+    <string name="audit_epackage">E-package</string>
+    <string name="mis_epackage">E-package</string>
+    <string name="title_activity_store_receipt_epackage">Recibo Tienda</string>
+    <string name="title_activity_leave">Salida camión</string>
+    <string name="title_activity_providers">ProvidersActivity</string>
+    <string name="action_truck">Camión</string>
+    <string name="mis_opt_travel">Viajes</string>
+    <string name="title_activity_travels">Viajes</string>
+    <string name="title_activity_scan_resume">"Comparación artículos "</string>
+    <string name="btnRoadmap">En ruta</string>
+    <string name="title_activity_vrp">Captura</string>
+    <string name="travel_review">Revisión</string>
+
+
+</resources>

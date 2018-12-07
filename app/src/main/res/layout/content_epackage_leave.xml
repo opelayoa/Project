@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:name="com.tiendas3b.almacen.fragments.BuysFragment"
+              android:id="@+id/switcher"
+              app:layout_behavior="@string/appbar_scrolling_view_behavior"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <!--<com.tiendas3b.almacen.views.GeneralSwipeRefreshLayout-->
+        <!--android:id="@+id/swipeRefresh"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="555dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            app:layoutManager="LinearLayoutManager"
+            tools:context="com.tiendas3b.almacen.shipment.epackage.LeaveActivity"
+            tools:listitem="@layout/row_epackage_leave" />
+
+
+        <Button
+            android:id="@+id/btnAceptar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/epackage_aceptar" />
+
+
+        <!--<com.tiendas3b.almacen.views.RecyclerViewFastScroller-->
+        <!--android:id="@+id/fastscroller"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignBottom="@id/list"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignTop="@id/list" />-->
+        <!--android:layout_alignParentRight="true"-->
+
+
+        <com.jetradar.desertplaceholder.DesertPlaceholder
+        android:id="@+id/emptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:dp_buttonText="Retry"
+        app:dp_message="@string/no_data_available"/>
+
+
+        <!--<ScrollView-->
+        <!--android:id="@+id/emptyView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:visibility="gone">-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/emptyMessage"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center"-->
+        <!--andrtextAndPrinttext="@string/no_data_available"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+        <!--android:visibility="visible" />-->
+        <!--</LinearLayout>-->
+        <!--</ScrollView>-->
+
+
+    </RelativeLayout>
+
+
+    <!--</com.tiendas3b.almacen.views.GeneralSwipeRefreshLayout>-->
+
+</ViewSwitcher>

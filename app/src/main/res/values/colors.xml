@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="red3B">#E52629</color>
+
+    <color name="colorPrimary">#f44336</color>
+    <color name="colorPrimaryDark">#B71C1C</color>
+    <color name="colorAccent">#03A9F4</color>
+    <color name="color_error">#BFBFBF</color>
+    <color name="table_data_row_odd">#D8D8D8</color>
+
+    <color name="event_color_01">#59dbe0</color>
+    <color name="event_color_02">#f57f68</color>
+    <color name="event_color_03">#87d288</color>
+    <color name="event_color_04">#f8b552</color>
+    <color name="timetable_gray">#424242</color>
+    <color name="white">#ffffff</color>
+
+    <color name="timetable_not_arrive">#f57f68</color>
+    <color name="timetable_late">#f8b552</color>
+    <color name="timetable_arrive_on_time">#87d288</color>
+    <color name="timetable_arrive_on_time_receipt_late">#59dbe0</color>
+    <color name="timetable_without_date">#BDBDBD</color>
+
+    <color name="own_brand">#01DF01</color>
+    <color name="comercial_brand">#00BFFF</color>
+    <color name="strok_map_button">#DFDFDF</color>
+
+    <color name="no_received">#f57f68</color>
+    <color name="received">#87d288</color>
+    <color name="in_process">#03A9F4</color>
+
+    <color name="odometer_background">#cccccc</color>
+</resources>

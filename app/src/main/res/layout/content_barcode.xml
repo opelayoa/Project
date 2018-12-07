@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.tiendas3b.almacen.activities.BarcodeActivity"
+    tools:showIn="@layout/activity_barcode">
+
+    <LinearLayout
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:focusable="false"
+                android:hint="@string/bc_id"
+                android:inputType="none"
+                android:textIsSelectable="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false"
+            >
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtBarcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:hint="@string/bc_barcode"
+                android:inputType="none"
+                />
+        </android.support.design.widget.TextInputLayout>
+                <!--android:focusable="false"-->
+                <!--android:textIsSelectable="true"-->
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:focusable="false"
+                android:hint="@string/bc_description"
+                android:inputType="none"
+                android:textIsSelectable="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtUnity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:focusable="false"
+                android:hint="@string/bc_unity"
+                android:inputType="none"
+                android:textIsSelectable="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:focusableInTouchMode="false" android:visibility="gone">-->
+            <!--<android.support.design.widget.TextInputEditText-->
+                <!--android:id="@+id/txtCost"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:drawablePadding="10dp"-->
+                <!--android:focusable="false"-->
+                <!--android:hint="@string/bc_cost"-->
+                <!--android:inputType="none"-->
+                <!--android:textIsSelectable="true"/>-->
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtSale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:focusable="false"
+                android:hint="@string/bc_sale"
+                android:inputType="none"
+                android:textIsSelectable="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtUnit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:focusable="false"
+                android:hint="@string/bc_unit"
+                android:inputType="none"
+                android:textIsSelectable="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="false">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtCircuit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:focusable="false"
+                android:hint="@string/bc_circuit"
+                android:inputType="none"
+                android:textIsSelectable="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnScanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/scann_barcode"/>
+    </LinearLayout>
+</ScrollView>

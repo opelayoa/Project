@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.tiendas3b.almacen.activities.RouteCaptureActivity"
+    tools:showIn="@layout/activity_route_capture">
+
+    <LinearLayout
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <com.satsuware.usefulviews.LabelledSpinner
+            android:id="@+id/spnActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:labelText="@string/route_activity" />
+
+        <com.satsuware.usefulviews.LabelledSpinner
+            android:id="@+id/spnScaffoldAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:labelText="@string/route_scaffold_amount" />
+
+        <com.satsuware.usefulviews.LabelledSpinner
+            android:id="@+id/spnScaffoldDownloadedAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:labelText="@string/route_scaffold_downloaded_amount" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/txtOrigin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/route_origin"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="4"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/txtDestination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/route_destination"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="4"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtInitialKm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:hint="@string/route_initial_km"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="8"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtFinalKm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:hint="@string/route_final_km"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="8"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtInitialTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:hint="@string/route_initial_time"
+                android:imeOptions="actionNext"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtFinalTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:imeOptions="actionNext"
+                android:hint="@string/route_final_time"
+                android:inputType="time"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:hint="@string/route_label"
+                android:maxLength="5"
+                android:maxLines="1" />
+                <!--android:inputType="number"-->
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtCash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:hint="@string/route_cash"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="5"
+                android:maxLines="1" />
+            <!--android:nextFocusDown="@+id/txtIave"-->
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtIave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:hint="@string/route_iave"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="5"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtDiesel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:hint="@string/route_diesel"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="5"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtStore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:hint="@string/route_store"
+                android:inputType="number"
+                android:maxLength="5"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+</ScrollView>

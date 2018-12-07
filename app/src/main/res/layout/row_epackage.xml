@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="@android:color/white"
+    card_view:cardCornerRadius="3dp"
+    card_view:cardElevation="2dp"
+    card_view:cardUseCompatPadding="true"
+    card_view:contentPaddingBottom="5dp"
+    card_view:contentPaddingLeft="5dp"
+    card_view:contentPaddingRight="5dp"
+    card_view:contentPaddingTop="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:weightSum=".9"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight=".3"-->
+        <!--android:focusableInTouchMode="false">-->
+        <!--&lt;!&ndash;android:hint="@string/ticket_number">&ndash;&gt;-->
+
+        <!--<android.support.design.widget.TextInputEditText-->
+        <!--android:id="@+id/txtProvider"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:drawablePadding="10dp"-->
+        <!--android:focusable="false"-->
+        <!--android:hint="@string/epackage_provider"-->
+        <!--android:inputType="none"-->
+        <!--android:minWidth="100dp"-->
+        <!--android:textIsSelectable="true"/>-->
+
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight=".3"-->
+        <!--android:focusableInTouchMode="false">-->
+
+        <!--<android.support.design.widget.TextInputEditText-->
+        <!--android:id="@+id/txtFolio"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:drawablePadding="10dp"-->
+        <!--android:focusable="false"-->
+        <!--android:hint="@string/epackage_folio"-->
+        <!--android:inputType="none"-->
+        <!--android:minWidth="100dp"-->
+        <!--android:textIsSelectable="true"/>-->
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight=".3"-->
+        <!--android:focusableInTouchMode="false">-->
+
+        <!--&lt;!&ndash;<android.support.design.widget.TextInputEditText&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/txtArticleId"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:drawablePadding="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:focusable="false"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:hint="@string/epackage_article"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:inputType="none"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:minWidth="100dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textIsSelectable="true"/>&ndash;&gt;-->
+        <!--</android.support.design.widget.TextInputLayout>-->
+        <!--</LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="false">
+                <!--android:hint="@string/ticket_number">-->
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtBarcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:focusable="false"
+                    android:hint="@string/epackage_barcode"
+                    android:inputType="none"
+                    android:minWidth="100dp"
+                    android:textIsSelectable="true" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="193dp"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="false">
+
+                <!--<android.support.design.widget.TextInputEditText-->
+                <!--android:id="@+id/txtPacking"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:drawablePadding="10dp"-->
+                <!--android:focusable="false"-->
+                <!--android:hint="@string/epackage_packing"-->
+                <!--android:inputType="none"-->
+                <!--android:minWidth="100dp"-->
+                <!--android:textIsSelectable="true" />-->
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="332dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusableInTouchMode="false">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:focusable="false"
+                    android:hint="@string/epackage_description"
+                    android:inputType="none"
+                    android:minWidth="100dp"
+                    android:textIsSelectable="true" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <!--app:layout_anchorGravity="bottom|right|end"-->
+            <!--app:layout_anchor="@id/appbar"-->
+            <!--android:layout_margin="@dimen/padding_card"-->
+            <!--<Button-->
+            <!--android:id="@+id/btnAction"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--andrtextAndPrinttext="@string/mark_received"/>-->
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <mbanje.kurt.fabbutton.FabButton
+        android:id="@+id/btnAction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="220dp"
+        android:clickable="true"
+        android:color="?attr/colorButtonNormal"
+        android:indeterminate="true"
+        android:max="100"
+        android:src="@drawable/upload"
+        app:fbb_autoStart="true"
+        app:fbb_endBitmap="@drawable/ic_fab_complete"
+        app:fbb_hideProgressOnComplete="true"
+        app:fbb_progressColor="?attr/colorAccent"
+        app:fbb_progressWidthRatio="0.1"
+        app:fbb_showEndBitmap="true"
+        app:fbb_showShadow="true" />
+
+    <!--<mbanje.kurt.fabbutton.FabButton-->
+    <!--android:id="@+id/btnAction"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="109dp"-->
+    <!--/>-->
+</android.support.v7.widget.CardView>

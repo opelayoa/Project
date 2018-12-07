@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.tiendas3b.almacen.activities.TimetableReceiptActivity"
+>
+    <!--tools:showIn="@layout/activity_timetable_receipt"-->
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#f0f000">
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+        android:text="dvsdv"
+        android:id="@+id/l1"/>
+
+        <com.alamkanak.weekview.WeekView
+            android:layout_above="@+id/l1"
+        android:id="@+id/weekView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:columnGap="8dp"
+        app:dayBackgroundColor="#05000000"
+        app:eventTextColor="@android:color/white"
+        app:headerColumnBackground="#ffffffff"
+        app:headerColumnPadding="8dp"
+        app:headerColumnTextColor="@color/white"
+        app:headerRowBackgroundColor="@color/colorPrimary"
+        app:headerRowPadding="12dp"
+        app:hourHeight="60dp"
+        app:noOfVisibleDays="3"
+        app:textSize="12sp"
+        app:todayBackgroundColor="#1848adff"
+        app:todayHeaderTextColor="@color/colorAccent"/>
+
+        <!--<TextView android:layout_width="match_parent"-->
+                  <!--android:layout_height="match_parent"-->
+        <!--andrtextAndPrinttext="sfvdv"/>-->
+    </RelativeLayout>
+
+    <!--<GridLayout android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+    <!--android:background="@color/event_color_01">-->
+
+        <!---->
+        <!--<com.alamkanak.weekview.WeekView-->
+            <!--android:id="@+id/weekView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--app:columnGap="8dp"-->
+            <!--app:dayBackgroundColor="#05000000"-->
+            <!--app:eventTextColor="@android:color/white"-->
+            <!--app:headerColumnBackground="#ffffffff"-->
+            <!--app:headerColumnPadding="8dp"-->
+            <!--app:headerColumnTextColor="@color/white"-->
+            <!--app:headerRowBackgroundColor="@color/colorPrimary"-->
+            <!--app:headerRowPadding="12dp"-->
+            <!--app:hourHeight="60dp"-->
+            <!--app:noOfVisibleDays="3"-->
+            <!--app:textSize="12sp"-->
+            <!--app:todayBackgroundColor="#1848adff"-->
+            <!--app:todayHeaderTextColor="@color/colorAccent"/>-->
+    <!--</GridLayout>-->
+
+
+
+
+
+    <!--<include layout="@layout/activity_base"/>-->
+
+    <!--<RelativeLayout android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<LinearLayout android:layout_width="match_parent"-->
+                  <!--android:layout_height="match_parent"-->
+                  <!--android:orientation="vertical">-->
+
+    <!--</LinearLayout>-->
+    <!--</RelativeLayout>-->
+
+</android.support.v4.widget.NestedScrollView>

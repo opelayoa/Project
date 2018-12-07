@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.tiendas3b.almacen.activities.MainActivity">
+
+    <!--<Button-->
+        <!--android:id="@+id/btnOpt2"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:drawableTop="@drawable/ic_assignment_return_black_72dp"-->
+        <!--andrtextAndPrinttext="Button"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="@+id/guideline"-->
+        <!--android:layout_marginStart="4dp" />-->
+
+    <Button
+        android:id="@+id/btnOpt1"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:drawableTop="@drawable/ic_assignment_late_black_72dp"
+        android:text="@string/pending_documents"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/guideline"
+        android:layout_marginEnd="2dp"
+        android:layout_width="0dp"
+        android:layout_height="109dp" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="182dp"
+        app:layout_constraintGuide_percent="0.50555557" />
+</android.support.constraint.ConstraintLayout>

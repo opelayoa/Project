@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".receipt.express2.ExpressReceiptActivity"
+    tools:showIn="@layout/activity_express_receipt2">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/lblProviderName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:hint="Proveedor"
+                    android:inputType="none"
+                    android:lines="1"
+                    tools:text="12345/ PANIFICADORA"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/lblOdc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="ODC"
+                    android:inputType="none"
+                    tools:text="12345"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/lblScaffoldQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="Tarimas"
+                    android:inputType="none"
+                    android:minWidth="60dp"
+                    tools:text="99"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/lblArticlesQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:gravity="center_horizontal"
+                    android:hint="Artículos"
+                    android:inputType="none"
+                    android:maxWidth="50dp"
+                    android:minWidth="60dp"
+                    tools:text="99"/>
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <EditText
+        android:id="@+id/txtBarcode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/hint_scan_barcode"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:textSize="18sp"
+    android:nextFocusDown="@id/txtBarcode"
+    android:nextFocusForward="@id/txtBarcode"
+    android:nextFocusLeft="@id/txtBarcode"
+    android:nextFocusRight="@id/txtBarcode"
+    android:nextFocusUp="@id/txtBarcode"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
+
+    <Button
+        android:id="@+id/btnProviders"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:drawableStart="@drawable/ic_arrow_upward_48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:drawableStart="@drawable/ic_close_48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btnBulk"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:drawableStart="@drawable/ic_boxes_48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnProviders"
+        />
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:drawableStart="@drawable/ic_check_48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnCancel"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:cardElevation="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBarcode"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/lblArticleName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:hint="Producto"
+                    android:inputType="none"
+                    android:minWidth="150dp"
+                    tools:text="El nombre de un producto largo"/>
+                <!--android:minWidth="60dp"-->
+                <!--android:gravity="center_horizontal"-->
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/lblBox4Pallet1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:hint="Cajas x Tarima"
+                        android:inputType="none"
+                        android:minWidth="110dp"
+                        tools:text="999"/>
+                    <!--android:minWidth="60dp"-->
+                    <!--android:gravity="center_horizontal"-->
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/lblBox4Pallet2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:hint=" Cajas X Cama"
+                        android:inputType="none"
+                        android:minWidth="120dp"
+                        tools:text="999"/>
+                    <!--android:minWidth="60dp"-->
+                    <!--android:gravity="center_horizontal"-->
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/lblPalletId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Id tarima producto"
+                        android:inputType="number"
+                        android:minWidth="110dp"
+                        tools:text="1"/>
+                        <!--android:focusable="false"-->
+
+
+                    <!--android:minWidth="60dp"-->
+                    <!--android:gravity="center_horizontal"-->
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/lblPalletTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:hint="Total tarimas"
+                        android:inputType="none"
+                        android:minWidth="130dp"
+                        tools:text="2"/>
+                    <!--android:minWidth="60dp"-->
+                    <!--android:gravity="center_horizontal"-->
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1">-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/lblPalletTotalOdc"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:focusable="false"-->
+            <!--android:hint=" Total Tarima ODC"-->
+            <!--android:inputType="none"-->
+            <!--android:minWidth="120dp"-->
+            <!--android:text="3"-->
+            <!--tools:text="3"/>-->
+            <!--&lt;!&ndash;android:minWidth="60dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:gravity="center_horizontal"&ndash;&gt;-->
+            <!--</android.support.design.widget.TextInputLayout>-->
+
+        </LinearLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:cardElevation="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBarcode"
+        app:layout_constraintVertical_bias="0.508">
+
+
+            <Button
+                android:id="@+id/btnStartRex2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:text="@string/start_receipt_express2" />
+
+
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>

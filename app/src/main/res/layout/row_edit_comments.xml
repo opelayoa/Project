@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activities.EditReceiptComments"
+    tools:showIn="@layout/activity_edit_comentarios">
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    card_view:cardBackgroundColor="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/llbuy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--<LinearLayout android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="10dp">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="false">
+                <!--android:hint="@string/ticket_number">-->
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtProvider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:focusable="false"
+                    android:hint="@string/buy_provider"
+                    android:inputType="none"
+                    android:minWidth="100dp"
+                    android:textIsSelectable="true"
+                    tools:text="gamesa" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="false"
+                android:visibility="gone">
+                <!--android:hint="@string/ticket_number">-->
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtDeliveryTimeMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:hint="Tiempo"
+                    android:inputType="none"
+                    android:text="@string/dummy_text_provider"
+                    android:textIsSelectable="true" />
+            </android.support.design.widget.TextInputLayout>
+            <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:focusableInTouchMode="false" android:visibility="gone">-->
+
+            <TextView
+                android:id="@+id/txtReceived"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end|center_vertical"
+                android:text="@string/received"
+                android:textColor="@color/received"
+                android:textSize="20sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:focusableInTouchMode="false">
+                <!--android:hint="@string/ticket_number">-->
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtFolio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:hint="@string/buy_folio"
+                    android:inputType="none"
+                    android:textIsSelectable="true"
+                    tools:text="123456" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.15"
+                android:focusableInTouchMode="false">
+                <!--android:hint="@string/ticket_number">-->
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtPlatform"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:hint="@string/buy_platform"
+                    android:inputType="none"
+                    android:textIsSelectable="true"
+                    tools:text="1" />
+            </android.support.design.widget.TextInputLayout>
+            <!--</LinearLayout>-->
+
+
+            <!--<LinearLayout android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:focusableInTouchMode="false">
+                <!--android:hint="@string/ticket_number">-->
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:hint="@string/buy_time"
+                    android:inputType="none"
+                    android:textIsSelectable="true"
+                    tools:text="10:30" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.35"
+                android:focusableInTouchMode="false">
+                <!--android:hint="@string/ticket_number">-->
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtDeliveryTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:hint="@string/buy_delivery_time"
+                    android:inputType="none"
+                    android:textIsSelectable="true"
+                    tools:text="2:00" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <!--android:hint="@string/ticket_number">-->
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtComments"
+                    android:layout_width="360dp"
+                    android:layout_height="match_parent"
+                    android:drawablePadding="10dp"
+                    android:focusable="true"
+                    android:hint="@string/buy_edit_comments"
+                    android:inputType="none"
+                    android:minWidth="200dp"
+                    tools:text="Sin comentarios" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/btnSaveComments"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:text="@string/action_save"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>

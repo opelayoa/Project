@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--xmlns:custom="http://schemas.android.com/apk/res-auto"-->
+
+    <include layout="@layout/content_picking_resume_normal"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"/>
+    <!--<com.tiendas3b.almacen.picking.orders.PickingResumeTableView-->
+        <!--android:id="@+id/list"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--custom:tableView_columnCount="6"-->
+        <!--custom:tableView_headerColor="@color/colorPrimary"-->
+        <!--custom:tableView_headerElevation="10"-->
+        <!--/>-->
+</android.widget.HorizontalScrollView>

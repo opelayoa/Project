@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher
+    android:name="com.tiendas3b.almacen.fragments.BuysFragment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ap="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <!--<ProgressBar-->
+        <!--android:id="@+id/login_progress"-->
+        <!--style="?android:attr/progressBarStyleLarge"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+    <!--<com.tiendas3b.almacen.views.GeneralSwipeRefreshLayout-->
+    <!--android:id="@+id/swipeRefresh"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <LinearLayout android:id="@+id/rltDecrease"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+        <com.androidplot.xy.XYPlot
+            style="@style/APDefacto.Dark"
+            android:id="@+id/plot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ap:title=""
+            ap:gridInsetLeft="55dp"
+            ap:gridInsetRight="1dp"
+            ap:gridClippingEnabled="false"
+            ap:lineLabelInsetLeft="50dp"
+            />
+        <!--<com.androidplot.xy.XYPlot-->
+            <!--style="@style/APDefacto.Dark"-->
+            <!--android:id="@+id/plot"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--ap:title="A Simple XY Plot"-->
+            <!--ap:rangeTitle=""-->
+            <!--ap:domainTitle=""-->
+            <!--ap:lineLabels="left|bottom"-->
+            <!--ap:lineLabelRotationBottom="-45"-->
+            <!--/>-->
+        <!--ap:backgroundColor="#2E2E2E"-->
+        <!--ap:borderColor="#BDBDBD"-->
+        <!--ap:domainLabel=""-->
+        <!--ap:domainLabelTextSize="13sp"-->
+        <!--ap:domainOriginTickLabelTextSize="15sp"-->
+        <!--ap:domainTickLabelTextSize="15sp"-->
+        <!--ap:graphBackgroundColor="#2E2E2E"-->
+        <!--ap:graphDomainLineColor="#BDBDBD"-->
+        <!--ap:graphDomainLineThickness="1dp"-->
+        <!--ap:graphMarginBottom="40dp"-->
+        <!--ap:graphMarginLeft="15dp"-->
+        <!--ap:graphMarginRight="10dp"-->
+        <!--ap:graphMarginTop="20dp"-->
+        <!--ap:graphRangeLineColor="#BDBDBD"-->
+        <!--ap:graphRangeLineThickness="1dp"-->
+        <!--ap:gridBackgroundColor="#2E2E2E"-->
+        <!--ap:gridPaddingBottom="20dp"-->
+        <!--ap:gridPaddingLeft="20dp"-->
+        <!--ap:gridPaddingRight="20dp"-->
+        <!--ap:gridPaddingTop="20dp"-->
+        <!--ap:label=""-->
+        <!--ap:labelTextSize="20sp"-->
+        <!--ap:legendAnchorPosition="right_bottom"-->
+        <!--ap:legendHeight="25dp"-->
+        <!--ap:legendIconHeight="15dp"-->
+        <!--ap:legendIconWidth="15dp"-->
+        <!--ap:legendTextSize="15sp"-->
+        <!--ap:rangeLabel=""-->
+        <!--ap:rangeLabelTextSize="13sp"-->
+        <!--ap:rangeOriginTickLabelTextSize="15sp"-->
+        <!--ap:rangeTickLabelTextSize="15sp"-->
+
+        <ScrollView
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/no_data_available"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="visible"/>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+    <!--</com.tiendas3b.almacen.views.GeneralSwipeRefreshLayout>-->
+</ViewSwitcher>

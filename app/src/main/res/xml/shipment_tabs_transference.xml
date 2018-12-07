@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/bb_menu_recyclable"
+        icon="@drawable/ic_recyclable_24dp"
+        title="@string/menu_reciclable" />
+    <tab
+        id="@+id/bb_menu_returnable"
+        icon="@drawable/ic_returnable_24dp"
+        title="@string/menu_retornable" />
+    <!--<tab-->
+        <!--id="@+id/bb_menu_io"-->
+        <!--icon="@drawable/ic_io_24dp"-->
+        <!--title="@string/menu_io" />-->
+    <!--<tab-->
+        <!--id="@+id/bb_menu_rm"-->
+        <!--icon="@drawable/ic_rm_24dp"-->
+        <!--title="@string/menu_rm" />-->
+    <!--<tab-->
+        <!--id="@+id/bb_menu_product"-->
+        <!--icon="@drawable/ic_product_24dp"-->
+        <!--title="@string/menu_producto" />-->
+</tabs>

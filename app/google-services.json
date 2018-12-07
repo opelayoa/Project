@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "787053157064",
+    "firebase_url": "https://almacen-a3a3c.firebaseio.com",
+    "project_id": "almacen-a3a3c",
+    "storage_bucket": "almacen-a3a3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787053157064:android:5b304da192914b49",
+        "android_client_info": {
+          "package_name": "com.tiendas3b.almacen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787053157064-7lkcakcps2sjuugosq5j336jkfqcft7o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tiendas3b.almacen",
+            "certificate_hash": "1a4a400ef548c231a3e5c07799fa360313cf3a11"
+          }
+        },
+        {
+          "client_id": "787053157064-35l2jrmj11gd3mvl4in657vj85n9aq8d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3cRTj4tlcindm3bAra4rbDDDk4I3ymyo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787053157064-35l2jrmj11gd3mvl4in657vj85n9aq8d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher
+    android:id="@+id/switcher"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:layout_below="@id/toolbar">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+    <!--<com.tiendas3b.almacen.views.GeneralSwipeRefreshLayout-->
+    <!--android:id="@+id/swipeRefresh"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"><!-- necesaria para mostrar emptyView -->
+
+        <!--<android.widget.HorizontalScrollView-->
+        <android.widget.LinearLayout
+            android:id="@+id/scrollTable"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--<TextView android:layout_width="match_parent"-->
+                      <!--android:layout_height="wrap_content"-->
+            <!--andrtextAndPrinttext="Proveedor"/>-->
+
+            <android.widget.HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <com.tiendas3b.almacen.views.tables.ReceiptsheetDetailTableView
+                android:id="@+id/list"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                custom:tableView_columnCount="6"
+                custom:tableView_headerColor="@color/colorPrimary"/>
+            </android.widget.HorizontalScrollView>
+
+            <!--<com.tiendas3b.almacen.views.RecyclerViewFastScroller-->
+            <!--android:id="@+id/fastscroller"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_alignBottom="@id/listAll"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignTop="@id/listAll"/>-->     <!-- por que no tiene un recyclerview! -->
+        </android.widget.LinearLayout>
+
+        <ScrollView
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/no_data_available"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:visibility="visible"/>
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+    <!--</com.tiendas3b.almacen.views.GeneralSwipeRefreshLayout>-->
+
+</ViewSwitcher>

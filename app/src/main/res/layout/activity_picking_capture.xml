@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/main_content"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical"
+              tools:context="com.tiendas3b.almacen.picking.orders.PickingCaptureActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <Chronometer
+                android:id="@+id/chrTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:gravity="end"
+                android:textSize="18sp"
+                />
+            <!--<ProgressBar-->
+                <!--android:id="@+id/progress"-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:layout_gravity="end"-->
+                <!--android:layout_marginEnd="10dp"-->
+                <!--android:indeterminate="true"-->
+                <!--android:visibility="gone"-->
+                <!--/>-->
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ViewSwitcher
+        android:id="@+id/viewSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<LinearLayout-->
+        <!--android:id="@+id/topLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:keepScreenOn="true"-->
+        <!--android:layout_gravity="center_horizontal">-->
+
+        <!--<com.tiendas3b.almacen.camera.CameraSourcePreview-->
+        <!--android:id="@+id/preview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--&gt;-->
+
+        <!--<com.tiendas3b.almacen.camera.GraphicOverlay-->
+        <!--android:id="@+id/graphicOverlay"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+        <!--</com.tiendas3b.almacen.camera.CameraSourcePreview>-->
+        <!--</LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/lblFolios"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    tools:text="Folios: 123456"/>
+
+                <EditText
+                    android:id="@+id/txtBarcode"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:nextFocusDown="@id/txtBarcode"
+                    android:nextFocusForward="@id/txtBarcode"
+                    android:nextFocusLeft="@id/txtBarcode"
+                    android:nextFocusRight="@id/txtBarcode"
+                    android:nextFocusUp="@id/txtBarcode">
+                </EditText>
+
+            </LinearLayout>
+
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<Button-->
+            <!--android:id="@+id/btnInit"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--andrtextAndPrinttext="@string/init_picking"/>-->
+            <!--<Button-->
+            <!--android:id="@+id/btnFinish"-->
+            <!--android:enabled="false"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--andrtextAndPrinttext="@string/finish_picking"-->
+            <!--android:layout_weight="1"/>-->
+            <!--</LinearLayout>-->
+
+
+            <com.tiendas3b.almacen.views.widgets.CustomViewPager
+                android:id="@+id/vpgArticles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+        </LinearLayout>
+
+        <!--    </LinearLayout>-->
+    </ViewSwitcher>
+
+</LinearLayout>
