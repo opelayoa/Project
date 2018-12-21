@@ -41,7 +41,7 @@ public class PalletLoadingPresenterImpl implements PalletLoadingPresenter {
                 }
             } else {
                 ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
-                DataBaseUtil.insertLog(databaseManager, "Inicio carga de tarimas del almacen.", tripId, this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_LOAD);
+                DataBaseUtil.insertLog(databaseManager, "Inicio carga de tarimas del almacen.", tripId, this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_LOAD, null);
                 view.openCounter(tripDetail.getId());
             }
         }

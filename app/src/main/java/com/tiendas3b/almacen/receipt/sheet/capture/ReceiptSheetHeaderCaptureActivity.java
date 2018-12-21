@@ -218,7 +218,7 @@ public class ReceiptSheetHeaderCaptureActivity extends SaveMenuActivity {
         staffNum = (int) spnStaffNum.getSpinner().getSelectedItem();
         platform = (int) spnPlatform.getSpinner().getSelectedItem();
         levelId = spnLevel.getSpinner().getSelectedItemId();
-        dateTypeId = spnDate.getSpinner().getSelectedItemId();
+//        dateTypeId = spnDate.getSpinner().getSelectedItemId();
         providerId = odc.getProvider().getId();
         regionId = mContext.getRegion();
         odcFolio = odc.getFolio();
@@ -615,7 +615,7 @@ public class ReceiptSheetHeaderCaptureActivity extends SaveMenuActivity {
         spnDate.setOnItemChosenListener(new LabelledSpinner.OnItemChosenListener() {
             @Override
             public void onItemChosen(View labelledSpinner, AdapterView<?> adapterView, View itemView, int position, long id) {
-                dateTypeId = id;
+                dateTypeId = dateTypes.get(position).getKey();
             }
 
             @Override

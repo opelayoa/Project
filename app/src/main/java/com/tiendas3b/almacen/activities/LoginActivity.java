@@ -45,11 +45,11 @@ public class  LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final Fabric fabric = new Fabric.Builder(this)
+        /*final Fabric fabric = new Fabric.Builder(this)
                 .kits(new Crashlytics(), new Answers())
                 .debuggable(true)
                 .build();
-        Fabric.with(fabric);
+        Fabric.with(fabric);*/
         setContentView(R.layout.activity_login);
         GlobalState mContext = (GlobalState) getApplicationContext();
         presenter = new LoginPresenterImpl(this, mContext);

@@ -31,9 +31,10 @@ public class SheetTripDao extends AbstractDao<SheetTrip, Long> {
         public final static Property StoreId = new Property(5, Long.class, "storeId", false, "STORE_ID");
         public final static Property Latitude = new Property(6, Double.class, "latitude", false, "LATITUDE");
         public final static Property Longitude = new Property(7, Double.class, "longitude", false, "LONGITUDE");
-        public final static Property ActivityId = new Property(8, Long.class, "activityId", false, "ACTIVITY_ID");
-        public final static Property UserId = new Property(9, long.class, "userId", false, "USER_ID");
-        public final static Property RegionId = new Property(10, long.class, "regionId", false, "REGION_ID");
+        public final static Property Odometer = new Property(8, Double.class, "odometer", false, "ODOMETER");
+        public final static Property ActivityId = new Property(9, Long.class, "activityId", false, "ACTIVITY_ID");
+        public final static Property UserId = new Property(10, long.class, "userId", false, "USER_ID");
+        public final static Property RegionId = new Property(11, long.class, "regionId", false, "REGION_ID");
     };
 
 
@@ -57,9 +58,10 @@ public class SheetTripDao extends AbstractDao<SheetTrip, Long> {
                 "\"STORE_ID\" INTEGER," + // 5: storeId
                 "\"LATITUDE\" REAL," + // 6: latitude
                 "\"LONGITUDE\" REAL," + // 7: longitude
-                "\"ACTIVITY_ID\" INTEGER," + // 8: activityId
-                "\"USER_ID\" INTEGER NOT NULL ," + // 9: userId
-                "\"REGION_ID\" INTEGER NOT NULL );"); // 10: regionId
+                "\"ODOMETER\" REAL," + // 8: odometer
+                "\"ACTIVITY_ID\" INTEGER," + // 9: activityId
+                "\"USER_ID\" INTEGER NOT NULL ," + // 10: userId
+                "\"REGION_ID\" INTEGER NOT NULL );"); // 11: regionId
     }
 
     /** Drops the underlying database table. */
@@ -97,12 +99,17 @@ public class SheetTripDao extends AbstractDao<SheetTrip, Long> {
             stmt.bindDouble(8, longitude);
         }
  
+        Double odometer = entity.getOdometer();
+        if (odometer != null) {
+            stmt.bindDouble(9, odometer);
+        }
+ 
         Long activityId = entity.getActivityId();
         if (activityId != null) {
-            stmt.bindLong(9, activityId);
+            stmt.bindLong(10, activityId);
         }
-        stmt.bindLong(10, entity.getUserId());
-        stmt.bindLong(11, entity.getRegionId());
+        stmt.bindLong(11, entity.getUserId());
+        stmt.bindLong(12, entity.getRegionId());
     }
 
     /** @inheritdoc */
@@ -123,9 +130,10 @@ public class SheetTripDao extends AbstractDao<SheetTrip, Long> {
             cursor.isNull(offset + 5) ? null : cursor.getLong(offset + 5), // storeId
             cursor.isNull(offset + 6) ? null : cursor.getDouble(offset + 6), // latitude
             cursor.isNull(offset + 7) ? null : cursor.getDouble(offset + 7), // longitude
-            cursor.isNull(offset + 8) ? null : cursor.getLong(offset + 8), // activityId
-            cursor.getLong(offset + 9), // userId
-            cursor.getLong(offset + 10) // regionId
+            cursor.isNull(offset + 8) ? null : cursor.getDouble(offset + 8), // odometer
+            cursor.isNull(offset + 9) ? null : cursor.getLong(offset + 9), // activityId
+            cursor.getLong(offset + 10), // userId
+            cursor.getLong(offset + 11) // regionId
         );
         return entity;
     }
@@ -141,9 +149,10 @@ public class SheetTripDao extends AbstractDao<SheetTrip, Long> {
         entity.setStoreId(cursor.isNull(offset + 5) ? null : cursor.getLong(offset + 5));
         entity.setLatitude(cursor.isNull(offset + 6) ? null : cursor.getDouble(offset + 6));
         entity.setLongitude(cursor.isNull(offset + 7) ? null : cursor.getDouble(offset + 7));
-        entity.setActivityId(cursor.isNull(offset + 8) ? null : cursor.getLong(offset + 8));
-        entity.setUserId(cursor.getLong(offset + 9));
-        entity.setRegionId(cursor.getLong(offset + 10));
+        entity.setOdometer(cursor.isNull(offset + 8) ? null : cursor.getDouble(offset + 8));
+        entity.setActivityId(cursor.isNull(offset + 9) ? null : cursor.getLong(offset + 9));
+        entity.setUserId(cursor.getLong(offset + 10));
+        entity.setRegionId(cursor.getLong(offset + 11));
      }
     
     /** @inheritdoc */

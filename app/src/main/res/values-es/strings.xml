@@ -112,6 +112,7 @@
     <string name="pdf_region">Almacén: %1$s</string>
     <string name="dialog_warning">¿Desea salir del proveedor?</string>
     <string name="save_warning">¿El total de cajas es correcto?</string>
+    <string name="save_folio_em_warning">Existe un Folio EM en Proceso, Intentelo Nuevamente.</string>
     <string name="decrease_folio">Folio ME</string>
     <string name="dialog_epackageAutomatico">¿Desea continuar con el escaneo?</string>
     <string name="pdf_me">Merma de mercancías</string>

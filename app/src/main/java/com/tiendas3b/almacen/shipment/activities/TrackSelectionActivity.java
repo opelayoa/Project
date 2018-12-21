@@ -20,13 +20,19 @@ import com.tiendas3b.almacen.shipment.filters.DoubleFilter;
 import com.tiendas3b.almacen.shipment.presenters.TrackSelectionPresenter;
 import com.tiendas3b.almacen.shipment.presenters.TrackSelectionPresenterImpl;
 import com.tiendas3b.almacen.shipment.util.DialogFactory;
+import com.tiendas3b.almacen.shipment.util.OdometerDialogListener;
 import com.tiendas3b.almacen.shipment.views.TrackSelectionView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class TrackSelectionActivity extends AppCompatActivity implements TrackSelectionView {
+public class TrackSelectionActivity extends AppCompatActivity implements TrackSelectionView, OdometerDialogListener {
+
+    private static final int TO_GAS = 1;
+    private static final int TO_STORE = 2;
+    private static final int TO_WHEREHOUSE = 3;
+
 
     @BindView(R.id.toGas)
     Button toGas;
@@ -48,6 +54,7 @@ public class TrackSelectionActivity extends AppCompatActivity implements TrackSe
 
     AlertDialog errorDialog;
     AlertDialog successDialog;
+    AlertDialog odometerDialog;
 
     TrackSelectionPresenter trackSelectionPresenter;
 
@@ -90,8 +97,10 @@ public class TrackSelectionActivity extends AppCompatActivity implements TrackSe
 
     @OnClick(R.id.toGas)
     public void toGas() {
-        getDialog().show();
+        odometerDialog = DialogFactory.getOdometerDialog(this, this, TO_GAS);
+        odometerDialog.show();
     }
+
 
     private AlertDialog getDialog() {
         View view = LayoutInflater.from(this).inflate(R.layout.content_shipment_gas_capture, null);
@@ -120,7 +129,7 @@ public class TrackSelectionActivity extends AppCompatActivity implements TrackSe
                             double longPrice = Double.valueOf(price.getText().toString());
                             double longLiters = Double.valueOf(liters.getText().toString());
                             trackSelectionPresenter.saveFuel(tripId, longPrice, longLiters);
-                        } catch(Exception e) {
+                        } catch (Exception e) {
                             showError("Error al guardar, intenta nuevamente por favor.");
                         }
                     }
@@ -131,17 +140,19 @@ public class TrackSelectionActivity extends AppCompatActivity implements TrackSe
 
     @OnClick(R.id.toStore)
     public void toStore() {
-        this.trackSelectionPresenter.deliverPallets(tripId);
+        odometerDialog = DialogFactory.getOdometerDialog(this, this, TO_STORE);
+        odometerDialog.show();
     }
 
     @OnClick(R.id.returnWarehouse)
     public void downloadWarehouse() {
-        Bundle bundle = new Bundle();
-        bundle.putLong("tripId", tripId);
-        Intent intent = new Intent(this, WarehouseDownloadActivity.class);
-        intent.putExtras(bundle);
-        startActivity(intent);
-        finish();
+        odometerDialog = DialogFactory.getOdometerDialog(this, this, TO_WHEREHOUSE);
+        odometerDialog.show();
+    }
+
+    @Override
+    public void capture(Double odometer, Integer event) {
+        trackSelectionPresenter.dispatch(odometer, event, tripId);
     }
 
     @Override
@@ -175,5 +186,25 @@ public class TrackSelectionActivity extends AppCompatActivity implements TrackSe
     public void resetValues() {
         price.setText("");
         liters.setText("");
+    }
+
+    @Override
+    public void goStore() {
+        this.trackSelectionPresenter.deliverPallets(tripId);
+    }
+
+    @Override
+    public void goGas() {
+        getDialog().show();
+    }
+
+    @Override
+    public void goWherehouse() {
+        Bundle bundle = new Bundle();
+        bundle.putLong("tripId", tripId);
+        Intent intent = new Intent(this, WarehouseDownloadActivity.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        finish();
     }
 }

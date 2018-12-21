@@ -13,4 +13,10 @@ public interface TrackSelectionView {
     void showToWarehouse();
 
     void resetValues();
+
+    void goStore();
+
+    void goGas();
+
+    void goWherehouse();
 }

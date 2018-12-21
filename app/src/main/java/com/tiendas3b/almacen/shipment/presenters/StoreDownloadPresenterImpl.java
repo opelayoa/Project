@@ -39,7 +39,7 @@ public class StoreDownloadPresenterImpl implements StoreDownloadPresenter {
 
 
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
-        DataBaseUtil.insertLog(databaseManager, "Tarima descargada en tienda: " + palletCounter, tripDetail.getTripId(), this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_DOWNLOAD);
+        DataBaseUtil.insertLog(databaseManager, "Tarima descargada en tienda: " + palletCounter, tripDetail.getTripId(), this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_DOWNLOAD, null);
 
         if (tripDetail.getPalletsNumber() > tripDetail.getDeliveredPalletCounter()) {
             databaseManager.insertOrUpdate(tripDetail);

@@ -43,7 +43,7 @@ public class TripDetailPresenterImpl implements TripDetailPresenter {
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
         shipmentControl.setStatus(ShipmentConstants.SHIPMENT_CONTROL_NOT_UPGRADABLE);
         databaseManager.update(shipmentControl);
-        DataBaseUtil.insertLog(databaseManager, "Inicio de viaje", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_ROUTE);
+        DataBaseUtil.insertLog(databaseManager, "Inicio de viaje", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_ROUTE, null);
         view.startTrip();
     }
 }

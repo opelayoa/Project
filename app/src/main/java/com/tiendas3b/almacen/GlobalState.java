@@ -1,6 +1,7 @@
 package com.tiendas3b.almacen;
 
 import android.app.Application;
+import android.content.Intent;
 
 import com.tiendas3b.almacen.http.ServiceGenerator;
 import com.tiendas3b.almacen.http.Tiendas3bClient;
@@ -16,6 +17,8 @@ import butterknife.ButterKnife;
 public class GlobalState extends Application {
 
     public static final String TAG = "Almacen";
+
+    private Intent gpsService;
 
     @Override
     public void onCreate() {
@@ -75,5 +78,13 @@ public class GlobalState extends Application {
         Preferences p = new Preferences(this);
         String userId = p.getSharedStringSafe(Preferences.KEY_USER_ID, "0");
         return Long.valueOf(userId);
+    }
+
+    public Intent getGpsService() {
+        return gpsService;
+    }
+
+    public void setGpsService(Intent gpsService) {
+        this.gpsService = gpsService;
     }
 }

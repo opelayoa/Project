@@ -2,6 +2,7 @@ package com.tiendas3b.almacen.fragments;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
@@ -151,47 +152,52 @@ public class BuyDetailFragment extends Fragment {
                 decreaseMPList = databaseManager.findDecreaseMP(this.item.getFolio());
                 fMuestrasList = databaseManager.findFMuestras(this.item.getFolio());
 
-                send(new Callback(){
+                send(new Callback() {
 
                     @Override
                     public void onResponse(Call call, Response response) {
+                        //TODO VALIDA QUE EXISTAN MUESTRAS
+                        if (decreaseMPList.size() > 0 && fMuestrasList.size() > 0) {
+                            for (int i = 0; i < decreaseMPList.size(); i++) {
+                                //hacer pruebas con constructor
+                                ArticleVO articleVO = new ArticleVO();
+                                articleVO.setIclave(decreaseMPList.get(i).getIclave());
+                                articleVO.setDescription(decreaseMPList.get(i).getDescription());
+                                articleVO.setAmount(decreaseMPList.get(i).getAmount());
+                                articleVO.setType(decreaseMPList.get(i).getType());
+                                articleVO.setObs(decreaseMPList.get(i).getObs());
+                                articleVO.setObsLog(decreaseMPList.get(i).getObsLog());
+                                articleVO.setCost(decreaseMPList.get(i).getCost());
+                                articleVO.setObsStr(decreaseMPList.get(i).getObsStr());
+                                articleVOList.add(articleVO);
+                            }
 
-                        for (int i = 0; i < decreaseMPList.size(); i++){
-                            //hacer pruebas con constructor
-                            ArticleVO articleVO = new ArticleVO();
-                            articleVO.setIclave(decreaseMPList.get(i).getIclave());
-                            articleVO.setDescription(decreaseMPList.get(i).getDescription());
-                            articleVO.setAmount(decreaseMPList.get(i).getAmount());
-                            articleVO.setType(decreaseMPList.get(i).getType());
-                            articleVO.setObs(decreaseMPList.get(i).getObs());
-                            articleVO.setObsLog(decreaseMPList.get(i).getObsLog());
-                            articleVO.setCost(decreaseMPList.get(i).getCost());
-                            articleVO.setObsStr(decreaseMPList.get(i).getObsStr());
-                            articleVOList.add(articleVO);
+                            insertDecrease(new Callback() {
+
+                                @Override
+                                public void onResponse(Call call, Response response) {
+
+                                    GeneralResponseDTO gr = (GeneralResponseDTO) response.body();
+                                    for (int i = 0; i < fMuestrasList.size(); i++) {
+                                        FMuestrasDTO fMuestrasDTO = new FMuestrasDTO(
+                                                fMuestrasList.get(i).getTclave(), fMuestrasList.get(i).getIclave(), fMuestrasList.get(i).getPclave(), fMuestrasList.get(i).getFecha(),
+                                                fMuestrasList.get(i).getOdc(), "", fMuestrasList.get(i).getLote(), fMuestrasList.get(i).getFechaCaducidad(),
+                                                fMuestrasList.get(i).getCantidad(), Integer.parseInt(gr.getDescription()), fMuestrasList.get(i).getUserId()
+                                        );
+                                        fMuestrasDTOList.add(fMuestrasDTO);
+                                    }
+                                    insertFMuestas(fMuestrasDTOList);
+                                }
+
+                                @Override
+                                public void onFailure(Call call, Throwable t) {
+
+                                }
+                            });
                         }
 
-                        insertDecrease(new Callback(){
+                        downloadPrintAGR();
 
-                            @Override
-                            public void onResponse(Call call, Response response) {
-
-                                GeneralResponseDTO gr = (GeneralResponseDTO) response.body();
-                                for (int i = 0; i < fMuestrasList.size(); i++){
-                                    FMuestrasDTO fMuestrasDTO = new FMuestrasDTO(
-                                            fMuestrasList.get(i).getTclave(), fMuestrasList.get(i).getIclave(), fMuestrasList.get(i).getPclave(), fMuestrasList.get(i).getFecha(),
-                                            fMuestrasList.get(i).getOdc(), "", fMuestrasList.get(i).getLote(), fMuestrasList.get(i).getFechaCaducidad(),
-                                            fMuestrasList.get(i).getCantidad(), Integer.parseInt(gr.getDescription()), fMuestrasList.get(i).getUserId()
-                                    );
-                                    fMuestrasDTOList.add(fMuestrasDTO);
-                                }
-                                insertFMuestas(fMuestrasDTOList);
-                            }
-
-                            @Override
-                            public void onFailure(Call call, Throwable t) {
-
-                            }
-                        });
                     }
 
                     @Override
@@ -199,8 +205,6 @@ public class BuyDetailFragment extends Fragment {
 
                     }
                 });
-
-                downloadPrintAGR();
 
                 return true;
         }
@@ -224,8 +228,22 @@ public class BuyDetailFragment extends Fragment {
                     if (response.isSuccessful()) {
                         GeneralResponseDTO res = response.body();
                         if (res.getCode() == Constants.WS_SUCCESS) {
-                             process(res.getDescription(), receiptSheetCapture.getFacturaRef(), receiptSheetCapture.getDeliveryman() + " / " + receiptSheetCapture.getReceiver());
+                            process(res.getDescription(), receiptSheetCapture.getFacturaRef(), receiptSheetCapture.getDeliveryman() + " / " + receiptSheetCapture.getReceiver());
+
                             callback.onResponse(call, response);
+                        } else if (res.getCode() == -2) {
+                            btnSave.setVisible(true);
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+                            alertDialogBuilder.setMessage(getString(R.string.save_folio_em_warning));
+                            alertDialogBuilder.setCancelable(false);
+                            alertDialogBuilder.setPositiveButton(getString(android.R.string.ok), null);
+//                            alertDialogBuilder.setNegativeButton(android.R.string.cancel, null);
+
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+                            alertDialog.show();
+
+                        }else{
+                            btnSave.setVisible(true);
                         }
                     } else {
 //                    viewSwitcher.findViewById(R.id.emptyView).setVisibility(View.VISIBLE);
@@ -1006,7 +1024,6 @@ public class BuyDetailFragment extends Fragment {
         }else{
             ticketTimes = "Hr Inicio: " + fhojaReciboEncTempDTO.getHoraEntrega() + " Hr Fin: " + DateUtil.getTimeNowStr();
         }
-
 
 
         TscSdk printer = new TscSdk();

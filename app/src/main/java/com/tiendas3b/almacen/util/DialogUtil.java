@@ -67,6 +67,7 @@ public class DialogUtil {
     public static void showAlertDialog(final Context context, String customMessage, String positiveText, String negativeText, DialogInterface.OnClickListener listener, DialogInterface.OnClickListener negativeListener){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         alertDialogBuilder.setMessage(customMessage);
+        alertDialogBuilder.setCancelable(false);
         alertDialogBuilder.setPositiveButton(positiveText, listener);
         alertDialogBuilder.setNegativeButton(negativeText, negativeListener);
         AlertDialog alertDialog = alertDialogBuilder.create();

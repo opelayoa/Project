@@ -36,7 +36,7 @@ public class PalletCounterPresenterImpl implements PalletCounterPresenter {
 
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
 
-        DataBaseUtil.insertLog(databaseManager, "Tarima cargada: " + palletCounter, tripDetail.getTripId(), this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_LOAD);
+        DataBaseUtil.insertLog(databaseManager, "Tarima cargada: " + palletCounter, tripDetail.getTripId(), this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_LOAD, null);
         tripDetail.setUploadedPalletCounter(palletCounter);
 
         if (tripDetail.getPalletsNumber() > tripDetail.getUploadedPalletCounter()) {

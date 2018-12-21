@@ -376,15 +376,10 @@ public class SyncCatalogsServices extends IntentService {
         call.enqueue(new Callback<List<DateType>>() {
             @Override
             public void onResponse(Call<List<DateType>> call, Response<List<DateType>> response) {
-                databaseManager.truncate(DateType.class);
                 if (response.isSuccessful()) {
                     List<DateType> list = response.body();
                     if(list != null && !list.isEmpty()) {
-
-//                        for (int i = 0; i < list.size(); i++) {
-//                            list.get(i).setId((long) i);
-//                        }
-
+                        databaseManager.truncate(DateType.class);
                         databaseManager.insertOrReplaceInTx(list.toArray(new DateType[list.size()]));
                     }
                 }

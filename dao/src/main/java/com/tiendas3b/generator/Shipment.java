@@ -165,6 +165,7 @@ public class Shipment {
         sheetTrip.addLongProperty("storeId");
         sheetTrip.addDoubleProperty("latitude");
         sheetTrip.addDoubleProperty("longitude");
+        sheetTrip.addDoubleProperty("odometer");
         sheetTrip.addLongProperty("activityId");
         sheetTrip.addLongProperty("userId").notNull();
         sheetTrip.addLongProperty("regionId").notNull();

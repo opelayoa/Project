@@ -38,7 +38,7 @@ public class StoreUploadPresenterImpl implements StoreUploadPresenter {
 
 
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
-        DataBaseUtil.insertLog(databaseManager, "Tarima cargada en tienda: " + palletCounter, tripDetail.getTripId(), this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_LOAD);
+        DataBaseUtil.insertLog(databaseManager, "Tarima cargada en tienda: " + palletCounter, tripDetail.getTripId(), this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_LOAD, null);
         tripDetail.setCollectedPalletTotal(palletCounter);
 
         tripDetail.setStatus(ShipmentConstants.TRIP_DETAIL_STATUS_COLLECTED);

@@ -7,4 +7,6 @@ public interface TrackSelectionPresenter {
     void deliverPallets(long tripId);
 
     void validateTrip(long tripId);
+
+    void dispatch(Double odometro, Integer event, long tripId);
 }

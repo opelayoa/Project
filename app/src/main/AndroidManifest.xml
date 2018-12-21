@@ -3,6 +3,7 @@
     package="com.tiendas3b.almacen">
 
     <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.location.gps" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -319,8 +320,10 @@
         </activity>
         <activity
             android:name=".shipment.activities.CheckListActivity"
+            android:configChanges="orientation"
             android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".shipment.activities.PalletLoadingActivity"
             android:parentActivityName=".activities.MainActivity"
@@ -941,6 +944,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.tiendas3b.almacen.receipt.edit.ReceiptEditTimetableActivity" />
         </activity>
+
+        <service android:name=".shipment.services.GPSService" android:enabled="true" android:exported="false" />
 
     </application>
 

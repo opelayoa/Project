@@ -19,6 +19,7 @@ public class SheetTrip {
     private Long storeId;
     private Double latitude;
     private Double longitude;
+    private Double odometer;
     private Long activityId;
     private long userId;
     private long regionId;
@@ -33,7 +34,7 @@ public class SheetTrip {
         this.id = id;
     }
 
-    public SheetTrip(Long id, java.util.Date date, String description, long tripId, long truckId, Long storeId, Double latitude, Double longitude, Long activityId, long userId, long regionId) {
+    public SheetTrip(Long id, java.util.Date date, String description, long tripId, long truckId, Long storeId, Double latitude, Double longitude, Double odometer, Long activityId, long userId, long regionId) {
         this.id = id;
         this.date = date;
         this.description = description;
@@ -42,6 +43,7 @@ public class SheetTrip {
         this.storeId = storeId;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.odometer = odometer;
         this.activityId = activityId;
         this.userId = userId;
         this.regionId = regionId;
@@ -113,6 +115,14 @@ public class SheetTrip {
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
+    }
+
+    public Double getOdometer() {
+        return odometer;
+    }
+
+    public void setOdometer(Double odometer) {
+        this.odometer = odometer;
     }
 
     public Long getActivityId() {

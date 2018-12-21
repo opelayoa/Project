@@ -1,9 +1,10 @@
 package com.tiendas3b.almacen.shipment.presenters;
 
 import android.content.Context;
+import android.location.Location;
+import android.widget.Toast;
 
 import com.tiendas3b.almacen.GlobalState;
-import com.tiendas3b.almacen.db.dao.Answer;
 import com.tiendas3b.almacen.db.dao.Form;
 import com.tiendas3b.almacen.db.dao.Question;
 import com.tiendas3b.almacen.db.dao.ShipmentControl;
@@ -12,26 +13,27 @@ import com.tiendas3b.almacen.db.manager.IDatabaseManager;
 import com.tiendas3b.almacen.shipment.util.DataBaseUtil;
 import com.tiendas3b.almacen.shipment.util.ShipmentConstants;
 import com.tiendas3b.almacen.shipment.views.ChecklistView;
-import com.tiendas3b.almacen.shipment.views.TripDetailView;
 
 import org.joda.time.LocalDate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CheckListPresenterImpl implements ChecklistPresenter {
 
     ChecklistView view;
-    private Context context;
     private IDatabaseManager databaseManager;
-    private GlobalState mContext;
+    private GlobalState context;
     private long regionId;
+
+    private long tripId;
+    private String message;
+    private Double odometer;
 
     public CheckListPresenterImpl(Context context, ChecklistView view) {
         this.view = view;
-        this.mContext = (GlobalState) context;
-        this.regionId = mContext.getRegion();
-        this.databaseManager = new DatabaseManager(mContext);
+        this.context = (GlobalState) context;
+        this.regionId = this.context.getRegion();
+        this.databaseManager = new DatabaseManager(context);
     }
 
 
@@ -48,8 +50,8 @@ public class CheckListPresenterImpl implements ChecklistPresenter {
     }
 
     @Override
-    public void generateLog(long tripId, String message) {
+    public void generateLog(long tripId, String message, Double odometer) {
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
-        DataBaseUtil.insertLog(databaseManager, message, tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW);
+        DataBaseUtil.insertLog(databaseManager, message, tripId, context.getRegion(), context.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW, odometer);
     }
 }

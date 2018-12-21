@@ -57,6 +57,6 @@ public class WarehouseDownloadPresenterImpl implements WarehouseDownloadPresente
     @Override
     public void generateLog(long tripId, String message) {
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
-        DataBaseUtil.insertLog(databaseManager, message, tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_DOWNLOAD);
+        DataBaseUtil.insertLog(databaseManager, message, tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_DOWNLOAD, null);
     }
 }

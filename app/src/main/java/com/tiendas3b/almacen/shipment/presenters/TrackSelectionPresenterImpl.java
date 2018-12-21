@@ -1,12 +1,15 @@
 package com.tiendas3b.almacen.shipment.presenters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 
 import com.tiendas3b.almacen.GlobalState;
 import com.tiendas3b.almacen.db.dao.ShipmentControl;
 import com.tiendas3b.almacen.db.dao.TripDetail;
 import com.tiendas3b.almacen.db.manager.DatabaseManager;
 import com.tiendas3b.almacen.db.manager.IDatabaseManager;
+import com.tiendas3b.almacen.shipment.activities.WarehouseDownloadActivity;
 import com.tiendas3b.almacen.shipment.http.ShipmentService;
 import com.tiendas3b.almacen.shipment.util.DataBaseUtil;
 import com.tiendas3b.almacen.shipment.util.ShipmentConstants;
@@ -16,6 +19,9 @@ import org.joda.time.LocalDate;
 
 public class TrackSelectionPresenterImpl implements TrackSelectionPresenter {
 
+    private static final int TO_GAS = 1;
+    private static final int TO_STORE = 2;
+    private static final int TO_WHEREHOUSE = 3;
 
     private final TrackSelectionView view;
     private ShipmentService shipmentService;
@@ -34,7 +40,7 @@ public class TrackSelectionPresenterImpl implements TrackSelectionPresenter {
     @Override
     public void saveFuel(long tripId, double price, double liters) {
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
-        DataBaseUtil.insertLog(databaseManager, "{\"price\" : " + price + ", \"liters\" : " + liters + "}", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_FUEL);
+        DataBaseUtil.insertLog(databaseManager, "{\"price\" : " + price + ", \"liters\" : " + liters + "}", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_FUEL, null);
         view.resetValues();
         view.showMessage("Conbustible registrado correctamente.");
     }
@@ -55,6 +61,27 @@ public class TrackSelectionPresenterImpl implements TrackSelectionPresenter {
         TripDetail tripDetail = databaseManager.findNextTripDetail(tripId, ShipmentConstants.TRIP_DETAIL_STATUS_LOADED);
         if (tripDetail == null) {
             view.showToWarehouse();
+        }
+    }
+
+    @Override
+    public void dispatch(Double odometer, Integer event, long tripId) {
+        ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
+        switch (event) {
+            case TO_GAS:
+                DataBaseUtil.insertLog(databaseManager, "Carga de combustible", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW, odometer);
+                view.goGas();
+                break;
+            case TO_STORE:
+                DataBaseUtil.insertLog(databaseManager, "Descarga en tienda", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW, odometer);
+                view.goStore();
+                break;
+            case TO_WHEREHOUSE:
+                DataBaseUtil.insertLog(databaseManager, "Regreso a almacen", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW, odometer);
+                view.goWherehouse();
+                break;
+            default:
+                break;
         }
     }
 }
