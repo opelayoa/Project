@@ -1,74 +1,140 @@
 package com.tiendas3b.almacen.shipment.services;
 
-import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Bundle;
+import android.os.Build;
+import android.os.Handler;
 import android.os.IBinder;
-import android.provider.Settings;
-import android.support.annotation.Nullable;
+import android.support.v4.app.NotificationCompat;
+
+import com.tiendas3b.almacen.R;
 
 public class GPSService extends Service {
 
-    public static final String RECEIVER = "location_update";
+    private Handler handler;
+    private Runnable runnable;
 
-    private LocationListener locationListener;
-    private LocationManager locationManager;
+    private BroadcastReceiver broadcastReceiver;
 
-    @Nullable
+    GeolocationHelper geolocationHelper;
+    private final static int INTERVAL = 5000;
+    public static final String LOCATION_UPDATE = "location_update";
+    public static final String REQUEST_LOCATION = "request_location";
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        handler = new Handler();
+        geolocationHelper = new GeolocationHelper(getApplicationContext());
+
+        if (broadcastReceiver == null) {
+            broadcastReceiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    broadCastLocation(geolocationHelper.getLastLocation());
+                }
+            };
+        }
+
+        registerReceiver(broadcastReceiver, new IntentFilter(GPSService.REQUEST_LOCATION));
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        runnable = new TimerRunnable();
+        initLocation();
+        handler.removeCallbacks(runnable);
+        handler.postDelayed(runnable, INTERVAL);
+        return START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        handler.removeCallbacks(runnable);
+        mNotificationManager.cancelAll();
+        super.onDestroy();
+    }
+
+    private class TimerRunnable implements Runnable {
+
+        public TimerRunnable() {
+
+        }
+
+        @Override
+        public void run() {
+
+            Location location = geolocationHelper.getLastLocation();
+            sendLocation(location);
+
+            handler.postDelayed(this, INTERVAL);
+        }
+    }
+
+    private void broadCastLocation(Location location) {
+        Intent intent = new Intent(LOCATION_UPDATE);
+        intent.putExtra("location", location);
+        sendBroadcast(intent);
+    }
+
     @Override
     public IBinder onBind(Intent intent) {
         return null;
     }
 
-    @SuppressLint("MissingPermission")
-    @Override
-    public void onCreate() {
-        super.onCreate();
-
-        locationListener = new LocationListener() {
+    private void initLocation() {
+        geolocationHelper.addLocationListener(new CallbackResponse<Location>() {
             @Override
-            public void onLocationChanged(Location location) {
-                Intent intent = new Intent(RECEIVER);
-                intent.putExtra("latitude", location.getLatitude());
-                intent.putExtra("longitude", location.getLongitude());
-                sendBroadcast(intent);
-            }
-
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
+            public void sendValue(Location response) {
 
             }
 
             @Override
-            public void onProviderEnabled(String provider) {
+            public void error(Exception e) {
 
             }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        };
-
-
-        locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
-
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 0, locationListener);
+        });
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
+    private void sendLocation(Location location) {
+        broadCastLocation(location);
+        sendNotification();
+    }
 
-        if (locationManager != null) {
-            locationManager.removeUpdates(locationListener);
+    private NotificationManager mNotificationManager;
+
+    public void sendNotification() {
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this.getApplicationContext(), "notify_001");
+
+        mBuilder.setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("Tiendas 3B")
+                .setContentText("Viaje iniciado...")
+                .setPriority(Notification.PRIORITY_MAX)
+                .setAutoCancel(true)
+                .setSound(null);
+
+        this.getApplicationContext();
+        mNotificationManager =
+                (NotificationManager) this.getSystemService(NOTIFICATION_SERVICE);
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelId = "T3Bgps";
+            NotificationChannel channel = new NotificationChannel(channelId,
+                    "Canal de gps",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            mNotificationManager.createNotificationChannel(channel);
+            mBuilder.setChannelId(channelId);
         }
+
+        mNotificationManager.notify(0, mBuilder.build());
     }
 }

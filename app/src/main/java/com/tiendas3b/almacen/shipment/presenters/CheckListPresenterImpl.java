@@ -2,7 +2,6 @@ package com.tiendas3b.almacen.shipment.presenters;
 
 import android.content.Context;
 import android.location.Location;
-import android.widget.Toast;
 
 import com.tiendas3b.almacen.GlobalState;
 import com.tiendas3b.almacen.db.dao.Form;
@@ -50,8 +49,8 @@ public class CheckListPresenterImpl implements ChecklistPresenter {
     }
 
     @Override
-    public void generateLog(long tripId, String message, Double odometer) {
+    public void generateLog(long tripId, String message, Double odometer, Location location) {
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
-        DataBaseUtil.insertLog(databaseManager, message, tripId, context.getRegion(), context.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW, odometer);
+        DataBaseUtil.insertLog(databaseManager, message, tripId, context.getRegion(), context.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW, odometer, location);
     }
 }

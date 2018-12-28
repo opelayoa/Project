@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.tiendas3b.almacen.R;
+import com.tiendas3b.almacen.shipment.base.GPSBaseActivity;
 import com.tiendas3b.almacen.shipment.filters.DecimalDigitsFilter;
 import com.tiendas3b.almacen.shipment.filters.DoubleFilter;
 import com.tiendas3b.almacen.shipment.presenters.TrackSelectionPresenter;
@@ -27,7 +28,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class TrackSelectionActivity extends AppCompatActivity implements TrackSelectionView, OdometerDialogListener {
+public class TrackSelectionActivity extends GPSBaseActivity implements TrackSelectionView, OdometerDialogListener {
 
     private static final int TO_GAS = 1;
     private static final int TO_STORE = 2;
@@ -128,7 +129,7 @@ public class TrackSelectionActivity extends AppCompatActivity implements TrackSe
                         try {
                             double longPrice = Double.valueOf(price.getText().toString());
                             double longLiters = Double.valueOf(liters.getText().toString());
-                            trackSelectionPresenter.saveFuel(tripId, longPrice, longLiters);
+                            trackSelectionPresenter.saveFuel(tripId, longPrice, longLiters, getLocation());
                         } catch (Exception e) {
                             showError("Error al guardar, intenta nuevamente por favor.");
                         }
@@ -152,7 +153,7 @@ public class TrackSelectionActivity extends AppCompatActivity implements TrackSe
 
     @Override
     public void capture(Double odometer, Integer event) {
-        trackSelectionPresenter.dispatch(odometer, event, tripId);
+        trackSelectionPresenter.dispatch(odometer, event, tripId, getLocation());
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.tiendas3b.almacen.shipment.presenters;
 
 import android.content.Context;
+import android.location.Location;
 
 import com.tiendas3b.almacen.GlobalState;
 import com.tiendas3b.almacen.db.dao.ShipmentControl;
@@ -55,8 +56,8 @@ public class WarehouseDownloadPresenterImpl implements WarehouseDownloadPresente
     }
 
     @Override
-    public void generateLog(long tripId, String message) {
+    public void generateLog(long tripId, String message, Location location) {
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
-        DataBaseUtil.insertLog(databaseManager, message, tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_DOWNLOAD, null);
+        DataBaseUtil.insertLog(databaseManager, message, tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_DOWNLOAD, null, location);
     }
 }

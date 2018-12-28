@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,14 +13,11 @@ import android.widget.ListView;
 import com.tiendas3b.almacen.R;
 import com.tiendas3b.almacen.db.dao.TripDetail;
 import com.tiendas3b.almacen.shipment.adapters.TripDetailAdapter;
-import com.tiendas3b.almacen.shipment.presenters.PalletCounterPresenter;
+import com.tiendas3b.almacen.shipment.base.GPSBaseActivity;
 import com.tiendas3b.almacen.shipment.presenters.PalletLoadingPresenter;
 import com.tiendas3b.almacen.shipment.presenters.PalletLoadingPresenterImpl;
-import com.tiendas3b.almacen.shipment.presenters.TripDetailPresenter;
-import com.tiendas3b.almacen.shipment.presenters.TripDetailPresenterImpl;
 import com.tiendas3b.almacen.shipment.util.DialogFactory;
 import com.tiendas3b.almacen.shipment.views.PalletLoadingView;
-import com.tiendas3b.almacen.shipment.views.TripDetailView;
 
 import java.util.Collections;
 import java.util.List;
@@ -30,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class PalletLoadingActivity extends AppCompatActivity implements PalletLoadingView, AdapterView.OnItemClickListener {
+public class PalletLoadingActivity extends GPSBaseActivity implements PalletLoadingView, AdapterView.OnItemClickListener {
 
     private PalletLoadingPresenter palletLoadingPresenter;
     private List<TripDetail> tripDetails;
@@ -117,7 +113,7 @@ public class PalletLoadingActivity extends AppCompatActivity implements PalletLo
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        palletLoadingPresenter.validateStore(id, tripId);
+        palletLoadingPresenter.validateStore(id, tripId, getLocation());
     }
 
     @OnClick(R.id.startTrip)

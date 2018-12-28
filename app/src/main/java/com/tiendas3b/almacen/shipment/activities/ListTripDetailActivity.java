@@ -11,8 +11,10 @@ import android.widget.ListView;
 import com.tiendas3b.almacen.R;
 import com.tiendas3b.almacen.db.dao.TripDetail;
 import com.tiendas3b.almacen.shipment.adapters.TripDetailAdapter;
+import com.tiendas3b.almacen.shipment.base.GPSBaseActivity;
 import com.tiendas3b.almacen.shipment.presenters.TripDetailPresenter;
 import com.tiendas3b.almacen.shipment.presenters.TripDetailPresenterImpl;
+import com.tiendas3b.almacen.shipment.services.GPSService;
 import com.tiendas3b.almacen.shipment.views.TripDetailView;
 
 import java.util.List;
@@ -20,7 +22,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ListTripDetailActivity extends AppCompatActivity implements TripDetailView {
+public class ListTripDetailActivity extends GPSBaseActivity implements TripDetailView {
 
     private TripDetailPresenter tripDetailPresenter;
     private List<TripDetail> tripDetails;
@@ -54,7 +56,7 @@ public class ListTripDetailActivity extends AppCompatActivity implements TripDet
 
         startTrip.setVisibility(Button.VISIBLE);
         startTrip.setOnClickListener(view -> {
-            tripDetailPresenter.startTrip(tripId);
+            tripDetailPresenter.startTrip(tripId, getLocation());
         });
     }
 

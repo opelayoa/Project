@@ -1,6 +1,7 @@
 package com.tiendas3b.almacen.shipment.presenters;
 
 import android.content.Context;
+import android.location.Location;
 
 import com.tiendas3b.almacen.GlobalState;
 import com.tiendas3b.almacen.db.dao.ShipmentControl;
@@ -39,11 +40,11 @@ public class TripDetailPresenterImpl implements TripDetailPresenter {
     }
 
     @Override
-    public void startTrip(long tripId) {
+    public void startTrip(long tripId, Location location) {
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
         shipmentControl.setStatus(ShipmentConstants.SHIPMENT_CONTROL_NOT_UPGRADABLE);
         databaseManager.update(shipmentControl);
-        DataBaseUtil.insertLog(databaseManager, "Inicio de viaje", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_ROUTE, null);
+        DataBaseUtil.insertLog(databaseManager, "Inicio de viaje", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_ROUTE, null, location);
         view.startTrip();
     }
 }

@@ -945,7 +945,10 @@
                 android:value="com.tiendas3b.almacen.receipt.edit.ReceiptEditTimetableActivity" />
         </activity>
 
-        <service android:name=".shipment.services.GPSService" android:enabled="true" android:exported="false" />
+        <service
+            android:name=".shipment.services.GPSService"
+            android:enabled="true"
+            android:exported="false" />
 
     </application>
 

@@ -1,6 +1,7 @@
 package com.tiendas3b.almacen.shipment.presenters;
 
 import android.content.Context;
+import android.location.Location;
 
 import com.tiendas3b.almacen.GlobalState;
 import com.tiendas3b.almacen.db.dao.ShipmentControl;
@@ -31,14 +32,14 @@ public class StoreUploadPresenterImpl implements StoreUploadPresenter {
     }
 
     @Override
-    public void countPallet(long tripDetailId) {
+    public void countPallet(long tripDetailId, Location location) {
         TripDetail tripDetail = databaseManager.findTripDetailById(tripDetailId);
         int palletCounter = tripDetail.getCollectedPalletTotal();
         palletCounter++;
 
 
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
-        DataBaseUtil.insertLog(databaseManager, "Tarima cargada en tienda: " + palletCounter, tripDetail.getTripId(), this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_LOAD, null);
+        DataBaseUtil.insertLog(databaseManager, "Tarima cargada en tienda: " + palletCounter, tripDetail.getTripId(), this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_LOAD, null, location);
         tripDetail.setCollectedPalletTotal(palletCounter);
 
         tripDetail.setStatus(ShipmentConstants.TRIP_DETAIL_STATUS_COLLECTED);

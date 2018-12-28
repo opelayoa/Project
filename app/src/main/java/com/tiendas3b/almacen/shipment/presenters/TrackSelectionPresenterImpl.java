@@ -2,6 +2,7 @@ package com.tiendas3b.almacen.shipment.presenters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 
 import com.tiendas3b.almacen.GlobalState;
@@ -38,9 +39,9 @@ public class TrackSelectionPresenterImpl implements TrackSelectionPresenter {
     }
 
     @Override
-    public void saveFuel(long tripId, double price, double liters) {
+    public void saveFuel(long tripId, double price, double liters, Location location) {
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
-        DataBaseUtil.insertLog(databaseManager, "{\"price\" : " + price + ", \"liters\" : " + liters + "}", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_FUEL, null);
+        DataBaseUtil.insertLog(databaseManager, "{\"price\" : " + price + ", \"liters\" : " + liters + "}", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_FUEL, null, location);
         view.resetValues();
         view.showMessage("Conbustible registrado correctamente.");
     }
@@ -65,19 +66,19 @@ public class TrackSelectionPresenterImpl implements TrackSelectionPresenter {
     }
 
     @Override
-    public void dispatch(Double odometer, Integer event, long tripId) {
+    public void dispatch(Double odometer, Integer event, long tripId, Location location) {
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
         switch (event) {
             case TO_GAS:
-                DataBaseUtil.insertLog(databaseManager, "Carga de combustible", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW, odometer);
+                DataBaseUtil.insertLog(databaseManager, "Carga de combustible", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW, odometer, location);
                 view.goGas();
                 break;
             case TO_STORE:
-                DataBaseUtil.insertLog(databaseManager, "Descarga en tienda", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW, odometer);
+                DataBaseUtil.insertLog(databaseManager, "Descarga en tienda", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW, odometer, location);
                 view.goStore();
                 break;
             case TO_WHEREHOUSE:
-                DataBaseUtil.insertLog(databaseManager, "Regreso a almacen", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW, odometer);
+                DataBaseUtil.insertLog(databaseManager, "Regreso a almacen", tripId, this.mContext.getRegion(), this.mContext.getUserId(), null, shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_REVIEW, odometer, location);
                 view.goWherehouse();
                 break;
             default:

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.tiendas3b.almacen.R;
 import com.tiendas3b.almacen.db.dao.TripDetail;
+import com.tiendas3b.almacen.shipment.base.GPSBaseActivity;
 import com.tiendas3b.almacen.shipment.presenters.PalletCounterPresenterImpl;
 import com.tiendas3b.almacen.shipment.presenters.StoreDownloadPresenter;
 import com.tiendas3b.almacen.shipment.presenters.StoreDownloadPresenterImpl;
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 
-public class StoreDownloadActivity extends AppCompatActivity implements StoreDownloadView {
+public class StoreDownloadActivity extends GPSBaseActivity implements StoreDownloadView {
 
     @BindView(R.id.btnCounter)
     Button btnCounter;
@@ -73,7 +74,7 @@ public class StoreDownloadActivity extends AppCompatActivity implements StoreDow
 
     @OnLongClick(R.id.btnCounter)
     public boolean pressCounter() {
-        storeDownloadPresenter.countPallet(tripDetailId);
+        storeDownloadPresenter.countPallet(tripDetailId, getLocation());
         return true;
     }
 

@@ -1,6 +1,7 @@
 package com.tiendas3b.almacen.shipment.presenters;
 
 import android.content.Context;
+import android.location.Location;
 
 import com.tiendas3b.almacen.GlobalState;
 import com.tiendas3b.almacen.db.dao.ShipmentControl;
@@ -29,14 +30,14 @@ public class PalletCounterPresenterImpl implements PalletCounterPresenter {
     }
 
     @Override
-    public void countPallet(long tripDetailId) {
+    public void countPallet(long tripDetailId, Location location) {
         TripDetail tripDetail = databaseManager.findTripDetailById(tripDetailId);
         int palletCounter = tripDetail.getUploadedPalletCounter();
         palletCounter++;
 
         ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
 
-        DataBaseUtil.insertLog(databaseManager, "Tarima cargada: " + palletCounter, tripDetail.getTripId(), this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_LOAD, null);
+        DataBaseUtil.insertLog(databaseManager, "Tarima cargada: " + palletCounter, tripDetail.getTripId(), this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_LOAD, null, location);
         tripDetail.setUploadedPalletCounter(palletCounter);
 
         if (tripDetail.getPalletsNumber() > tripDetail.getUploadedPalletCounter()) {

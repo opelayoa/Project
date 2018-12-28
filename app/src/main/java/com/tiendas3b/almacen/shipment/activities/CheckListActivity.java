@@ -1,27 +1,23 @@
 package com.tiendas3b.almacen.shipment.activities;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
-import com.tiendas3b.almacen.GlobalState;
 import com.tiendas3b.almacen.R;
 import com.tiendas3b.almacen.db.dao.Form;
 import com.tiendas3b.almacen.db.dao.Question;
+import com.tiendas3b.almacen.shipment.base.GPSBaseActivity;
 import com.tiendas3b.almacen.shipment.presenters.CheckListPresenterImpl;
 import com.tiendas3b.almacen.shipment.presenters.ChecklistPresenter;
-import com.tiendas3b.almacen.shipment.services.GPSService;
 import com.tiendas3b.almacen.shipment.util.DialogFactory;
 import com.tiendas3b.almacen.shipment.util.OdometerDialogListener;
 import com.tiendas3b.almacen.shipment.views.ChecklistView;
@@ -29,16 +25,13 @@ import com.tiendas3b.almacen.shipment.views.ChecklistView;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CheckListActivity extends AppCompatActivity implements ChecklistView, OdometerDialogListener {
+public class CheckListActivity extends GPSBaseActivity implements ChecklistView, OdometerDialogListener {
 
     private ChecklistPresenter checklistPresenter;
     private Map<Integer, CheckBox> map;
     private Button button;
     private AlertDialog alertDialog;
     private long tripId;
-
-    private BroadcastReceiver broadcastReceiver;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,33 +58,11 @@ public class CheckListActivity extends AppCompatActivity implements ChecklistVie
 
         checklistPresenter.getForm();
 
-        Intent intent = new Intent(getApplicationContext(), GPSService.class);
-        startService(intent);
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        if (broadcastReceiver == null) {
-            broadcastReceiver = new BroadcastReceiver() {
-                @Override
-                public void onReceive(Context context, Intent intent) {
-                    Log.i(CheckListActivity.class.getCanonicalName(), "lat: " + intent.getExtras().get("latitude") + " lon: " + intent.getExtras().get("longitude"));
-                }
-            };
-        }
-
-        registerReceiver(broadcastReceiver, new IntentFilter(GPSService.RECEIVER));
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (broadcastReceiver != null) {
-            unregisterReceiver(broadcastReceiver);
-        }
     }
 
     @Override
@@ -136,7 +107,7 @@ public class CheckListActivity extends AppCompatActivity implements ChecklistVie
         if (map.containsKey(counter + 1)) {
             checkBox = map.get(counter + 1);
             checkBox.setEnabled(true);
-            checklistPresenter.generateLog(tripId, "Check: " + checkBox.getText(), null);
+            checklistPresenter.generateLog(tripId, "Check: " + checkBox.getText(), null, getLocation());
         } else {
             button.setVisibility(Button.VISIBLE);
         }
@@ -158,7 +129,7 @@ public class CheckListActivity extends AppCompatActivity implements ChecklistVie
     @Override
     public void capture(Double odometer, Integer event) {
         alertDialog.dismiss();
-        checklistPresenter.generateLog(tripId, "Inicio de viaje: " + tripId, odometer);
+        checklistPresenter.generateLog(tripId, "Inicio de viaje: " + tripId, odometer, getLocation());
         Bundle bundle = new Bundle();
         bundle.putLong("tripId", tripId);
         Intent intent = new Intent(CheckListActivity.this, PalletLoadingActivity.class);

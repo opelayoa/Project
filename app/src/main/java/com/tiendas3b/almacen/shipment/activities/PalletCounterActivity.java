@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.tiendas3b.almacen.R;
 import com.tiendas3b.almacen.db.dao.Trip;
 import com.tiendas3b.almacen.db.dao.TripDetail;
+import com.tiendas3b.almacen.shipment.base.GPSBaseActivity;
 import com.tiendas3b.almacen.shipment.presenters.PalletCounterPresenter;
 import com.tiendas3b.almacen.shipment.presenters.PalletCounterPresenterImpl;
 import com.tiendas3b.almacen.shipment.views.PalletCounterView;
@@ -19,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnLongClick;
 
-public class PalletCounterActivity extends AppCompatActivity implements PalletCounterView {
+public class PalletCounterActivity extends GPSBaseActivity implements PalletCounterView {
 
     @BindView(R.id.btnCounter)
     Button btnCounter;
@@ -67,7 +68,7 @@ public class PalletCounterActivity extends AppCompatActivity implements PalletCo
 
     @OnLongClick(R.id.btnCounter)
     public boolean pressCounter() {
-        palletCounterPresenter.countPallet(tripDetailId);
+        palletCounterPresenter.countPallet(tripDetailId, getLocation());
         return true;
     }
 

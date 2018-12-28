@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.tiendas3b.almacen.R;
 import com.tiendas3b.almacen.db.dao.TripDetail;
+import com.tiendas3b.almacen.shipment.base.GPSBaseActivity;
 import com.tiendas3b.almacen.shipment.presenters.StoreUploadPresenter;
 import com.tiendas3b.almacen.shipment.presenters.StoreUploadPresenterImpl;
 import com.tiendas3b.almacen.shipment.views.StoreUploadView;
@@ -29,7 +30,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 
-public class StoreUploadActivity extends AppCompatActivity implements StoreUploadView {
+public class StoreUploadActivity extends GPSBaseActivity implements StoreUploadView {
 
     @BindView(R.id.btnCounter)
     Button btnCounter;
@@ -120,7 +121,7 @@ public class StoreUploadActivity extends AppCompatActivity implements StoreUploa
                 .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        storeUploadPresenter.countPallet(tripDetailId);
+                        storeUploadPresenter.countPallet(tripDetailId, getLocation());
                     }
                 });
 

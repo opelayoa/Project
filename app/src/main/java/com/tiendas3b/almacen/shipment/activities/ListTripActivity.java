@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -14,8 +15,10 @@ import android.widget.ListView;
 import com.tiendas3b.almacen.R;
 import com.tiendas3b.almacen.db.dao.Trip;
 import com.tiendas3b.almacen.shipment.adapters.TripAdapter;
+import com.tiendas3b.almacen.shipment.base.GPSBaseActivity;
 import com.tiendas3b.almacen.shipment.presenters.TripPresenter;
 import com.tiendas3b.almacen.shipment.presenters.TripPresenterImpl;
+import com.tiendas3b.almacen.shipment.services.GPSService;
 import com.tiendas3b.almacen.shipment.util.AlertDialogListener;
 import com.tiendas3b.almacen.shipment.util.DialogFactory;
 import com.tiendas3b.almacen.shipment.views.TripView;
@@ -55,6 +58,11 @@ public class ListTripActivity extends AppCompatActivity implements TripView, Ale
     protected void onResume() {
         super.onResume();
         tripPresenter.getTrips();
+
+        if (GPSBaseActivity.isServiceRunning(this, GPSService.class)) {
+            Intent gpsService = new Intent(this, GPSService.class);
+            stopService(gpsService);
+        }
     }
 
     @Override
@@ -74,6 +82,9 @@ public class ListTripActivity extends AppCompatActivity implements TripView, Ale
     public void showDetails(long tripId) {
         Bundle bundle = new Bundle();
         bundle.putLong("tripId", tripId);
+
+        Intent service = new Intent(ListTripActivity.this, GPSService.class);
+        startService(service);
 
         Intent intent = new Intent(this, ListTripDetailActivity.class);
         intent.putExtras(bundle);
@@ -105,7 +116,7 @@ public class ListTripActivity extends AppCompatActivity implements TripView, Ale
     }
 
     @OnClick(R.id.startTrip)
-    void sendInfo(){
+    void sendInfo() {
         this.tripPresenter.showInfo();
     }
 

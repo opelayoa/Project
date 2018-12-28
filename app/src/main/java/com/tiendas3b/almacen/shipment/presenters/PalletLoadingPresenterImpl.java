@@ -1,6 +1,7 @@
 package com.tiendas3b.almacen.shipment.presenters;
 
 import android.content.Context;
+import android.location.Location;
 
 import com.tiendas3b.almacen.GlobalState;
 import com.tiendas3b.almacen.db.dao.ShipmentControl;
@@ -31,7 +32,7 @@ public class PalletLoadingPresenterImpl implements PalletLoadingPresenter {
     }
 
     @Override
-    public void validateStore(long tripDetailId, long tripId) {
+    public void validateStore(long tripDetailId, long tripId, Location location) {
         TripDetail tripDetailNext = databaseManager.findNextTripDetail(tripId, ShipmentConstants.TRIP_DETAIL_STATUS_NOT_YET_STARTED, ShipmentConstants.TRIP_DETAIL_STATUS_STARTED);
         TripDetail tripDetail = databaseManager.findTripDetailById(tripDetailId);
         if (tripDetailNext != null) {
@@ -41,7 +42,7 @@ public class PalletLoadingPresenterImpl implements PalletLoadingPresenter {
                 }
             } else {
                 ShipmentControl shipmentControl = databaseManager.findShipmentControlByDate(LocalDate.now().toDate());
-                DataBaseUtil.insertLog(databaseManager, "Inicio carga de tarimas del almacen.", tripId, this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_LOAD, null);
+                DataBaseUtil.insertLog(databaseManager, "Inicio carga de tarimas del almacen.", tripId, this.mContext.getRegion(), this.mContext.getUserId(), tripDetail.getStoreId(), shipmentControl.getTruckId(), ShipmentConstants.ACTIVITY_LOAD, null, location);
                 view.openCounter(tripDetail.getId());
             }
         }

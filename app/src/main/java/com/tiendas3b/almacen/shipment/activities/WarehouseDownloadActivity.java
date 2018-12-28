@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tiendas3b.almacen.R;
+import com.tiendas3b.almacen.shipment.base.GPSBaseActivity;
 import com.tiendas3b.almacen.shipment.presenters.WarehouseDownloadPresenter;
 import com.tiendas3b.almacen.shipment.presenters.WarehouseDownloadPresenterImpl;
 import com.tiendas3b.almacen.shipment.views.WarehouseDownloadView;
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 
-public class WarehouseDownloadActivity extends AppCompatActivity implements WarehouseDownloadView {
+public class WarehouseDownloadActivity extends GPSBaseActivity implements WarehouseDownloadView {
 
     @BindView(R.id.btnCounter)
     Button btnCounter;
@@ -92,7 +93,7 @@ public class WarehouseDownloadActivity extends AppCompatActivity implements Ware
         palletCounter.setText(String.valueOf(counter));
         btnCounter.setText(String.valueOf(counter));
 
-        this.warehouseDownloadPresenter.generateLog(tripId, "Decarga de Item en Almacen: " + counter);
+        this.warehouseDownloadPresenter.generateLog(tripId, "Decarga de Item en Almacen: " + counter, getLocation());
 
         if (counter == totalItems) {
             warehouseDownloadPresenter.notifyFinish(tripId);

@@ -32,4 +32,9 @@ public interface ShipmentService {
     @POST("CargaInfoViajes")
     Call<Void> uploadInfoTrips(@Body List<SheetTrip> sheetTrips);
 
+    @POST("RegistraActividad")
+    Call<Void> insertActivity(@Body SheetTrip sheetTrips);
+
+    @POST("RegistraActividadCosto")
+    Call<Void> insertExpenseActivity(@Body SheetTrip sheetTrips);
 }
