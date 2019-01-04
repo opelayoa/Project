@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,7 +17,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.tiendas3b.almacen.shipment.services.GPSService;
-import com.tiendas3b.almacen.shipment.util.AlertDialogListener;
 import com.tiendas3b.almacen.shipment.util.DialogFactory;
 
 import java.util.List;

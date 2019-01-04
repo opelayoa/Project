@@ -39,7 +39,7 @@ public class ReceiptSheetCaptureDao extends AbstractDao<ReceiptSheetCapture, Lon
         public final static Property Iva = new Property(10, Float.class, "iva", false, "IVA");
         public final static Property Ieps = new Property(11, Float.class, "ieps", false, "IEPS");
         public final static Property Deliveryman = new Property(12, String.class, "deliveryman", false, "DELIVERYMAN");
-        public final static Property Receiver = new Property(13, String.class, "receiver", false, "LOCATION_UPDATE");
+        public final static Property Receiver = new Property(13, String.class, "receiver", false, "RECEIVER");
         public final static Property Platform = new Property(14, Integer.class, "platform", false, "PLATFORM");
         public final static Property LevelId = new Property(15, Long.class, "levelId", false, "LEVEL_ID");
         public final static Property DateTypeId = new Property(16, Long.class, "dateTypeId", false, "DATE_TYPE_ID");
@@ -78,7 +78,7 @@ public class ReceiptSheetCaptureDao extends AbstractDao<ReceiptSheetCapture, Lon
                 "\"IVA\" REAL," + // 10: iva
                 "\"IEPS\" REAL," + // 11: ieps
                 "\"DELIVERYMAN\" TEXT," + // 12: deliveryman
-                "LOCA TEXT," + // 13: receiver
+                "\"RECEIVER\" TEXT," + // 13: receiver
                 "\"PLATFORM\" INTEGER," + // 14: platform
                 "\"LEVEL_ID\" INTEGER," + // 15: levelId
                 "\"DATE_TYPE_ID\" INTEGER," + // 16: dateTypeId

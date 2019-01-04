@@ -35,6 +35,7 @@ public class SheetTripDao extends AbstractDao<SheetTrip, Long> {
         public final static Property ActivityId = new Property(9, Long.class, "activityId", false, "ACTIVITY_ID");
         public final static Property UserId = new Property(10, long.class, "userId", false, "USER_ID");
         public final static Property RegionId = new Property(11, long.class, "regionId", false, "REGION_ID");
+        public final static Property Status = new Property(12, long.class, "status", false, "STATUS");
     };
 
 
@@ -61,7 +62,8 @@ public class SheetTripDao extends AbstractDao<SheetTrip, Long> {
                 "\"ODOMETER\" REAL," + // 8: odometer
                 "\"ACTIVITY_ID\" INTEGER," + // 9: activityId
                 "\"USER_ID\" INTEGER NOT NULL ," + // 10: userId
-                "\"REGION_ID\" INTEGER NOT NULL );"); // 11: regionId
+                "\"REGION_ID\" INTEGER NOT NULL ," + // 11: regionId
+                "\"STATUS\" INTEGER NOT NULL );"); // 12: status
     }
 
     /** Drops the underlying database table. */
@@ -110,6 +112,7 @@ public class SheetTripDao extends AbstractDao<SheetTrip, Long> {
         }
         stmt.bindLong(11, entity.getUserId());
         stmt.bindLong(12, entity.getRegionId());
+        stmt.bindLong(13, entity.getStatus());
     }
 
     /** @inheritdoc */
@@ -133,7 +136,8 @@ public class SheetTripDao extends AbstractDao<SheetTrip, Long> {
             cursor.isNull(offset + 8) ? null : cursor.getDouble(offset + 8), // odometer
             cursor.isNull(offset + 9) ? null : cursor.getLong(offset + 9), // activityId
             cursor.getLong(offset + 10), // userId
-            cursor.getLong(offset + 11) // regionId
+            cursor.getLong(offset + 11), // regionId
+            cursor.getLong(offset + 12) // status
         );
         return entity;
     }
@@ -153,6 +157,7 @@ public class SheetTripDao extends AbstractDao<SheetTrip, Long> {
         entity.setActivityId(cursor.isNull(offset + 9) ? null : cursor.getLong(offset + 9));
         entity.setUserId(cursor.getLong(offset + 10));
         entity.setRegionId(cursor.getLong(offset + 11));
+        entity.setStatus(cursor.getLong(offset + 12));
      }
     
     /** @inheritdoc */

@@ -83,4 +83,5 @@ public class TripPresenterImpl implements TripPresenter {
             }
         });*/
     }
+
 }

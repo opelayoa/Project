@@ -3,7 +3,7 @@ package com.tiendas3b.almacen.shipment.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.ListView;
@@ -14,7 +14,8 @@ import com.tiendas3b.almacen.shipment.adapters.TripDetailAdapter;
 import com.tiendas3b.almacen.shipment.base.GPSBaseActivity;
 import com.tiendas3b.almacen.shipment.presenters.TripDetailPresenter;
 import com.tiendas3b.almacen.shipment.presenters.TripDetailPresenterImpl;
-import com.tiendas3b.almacen.shipment.services.GPSService;
+import com.tiendas3b.almacen.shipment.util.DialogFactory;
+import com.tiendas3b.almacen.shipment.views.ActivitySenderListener;
 import com.tiendas3b.almacen.shipment.views.TripDetailView;
 
 import java.util.List;
@@ -22,11 +23,14 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ListTripDetailActivity extends GPSBaseActivity implements TripDetailView {
+public class ListTripDetailActivity extends GPSBaseActivity implements TripDetailView, ActivitySenderListener {
 
     private TripDetailPresenter tripDetailPresenter;
     private List<TripDetail> tripDetails;
     private ListView listView;
+
+
+    private AlertDialog progressDialog;
 
     @BindView(R.id.startTrip)
     Button startTrip;
@@ -48,6 +52,8 @@ public class ListTripDetailActivity extends GPSBaseActivity implements TripDetai
         }
 
         configureToolbar();
+
+        progressDialog = DialogFactory.getProgressDialog(this, "Enviando actividad");
 
         this.listView = findViewById(R.id.trips);
         // TODO: Obtención del ID del camión seleccionado
@@ -90,4 +96,16 @@ public class ListTripDetailActivity extends GPSBaseActivity implements TripDetai
         startActivity(intent);
         finish();
     }
+
+    @Override
+    public void startProgressActivityUpload(String title) {
+        progressDialog = DialogFactory.getProgressDialog(this, title);
+        progressDialog.show();
+    }
+
+    @Override
+    public void stopProgressActivityUpload() {
+        progressDialog.dismiss();
+    }
+
 }

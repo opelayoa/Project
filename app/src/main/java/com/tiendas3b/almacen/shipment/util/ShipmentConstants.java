@@ -24,4 +24,10 @@ public interface ShipmentConstants {
     long ACTIVITY_REVIEW = 6;
     long ACTIVITY_OTHERS = 7;
 
+
+    long STATUS_ACTIVITY_CREATED = 0;
+    long STATUS_ACTIVITY_REGISTERED = 1;
+    long STATUS_ACTIVITY_ERROR = 2;
+    long STATUS_ACTIVITY_COMPLETED = 3;
+
 }

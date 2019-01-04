@@ -23,6 +23,7 @@ public class SheetTrip {
     private Long activityId;
     private long userId;
     private long regionId;
+    private long status;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -34,7 +35,7 @@ public class SheetTrip {
         this.id = id;
     }
 
-    public SheetTrip(Long id, java.util.Date date, String description, long tripId, long truckId, Long storeId, Double latitude, Double longitude, Double odometer, Long activityId, long userId, long regionId) {
+    public SheetTrip(Long id, java.util.Date date, String description, long tripId, long truckId, Long storeId, Double latitude, Double longitude, Double odometer, Long activityId, long userId, long regionId, long status) {
         this.id = id;
         this.date = date;
         this.description = description;
@@ -47,6 +48,7 @@ public class SheetTrip {
         this.activityId = activityId;
         this.userId = userId;
         this.regionId = regionId;
+        this.status = status;
     }
 
     public Long getId() {
@@ -147,6 +149,14 @@ public class SheetTrip {
 
     public void setRegionId(long regionId) {
         this.regionId = regionId;
+    }
+
+    public long getStatus() {
+        return status;
+    }
+
+    public void setStatus(long status) {
+        this.status = status;
     }
 
     // KEEP METHODS - put your custom methods here

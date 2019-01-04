@@ -16,7 +16,7 @@ public class MyDaoGenerator {
 
     private static final String PROJECT_DIR = System.getProperty("user.dir").replace("\\", "/");
     private static final String OUT_DIR = PROJECT_DIR + "/app/src/main/java";//Esto es para regresar una carpeta
-    private static final int DB_VERSION = 28;
+    private static final int DB_VERSION = 29;
     public static final String SPINNER_BASE = "SpinnerBase";
     private static final String STORE_BASE = "StoreBase";
     public static final String EQUALS_BASE = "EqualsBase";

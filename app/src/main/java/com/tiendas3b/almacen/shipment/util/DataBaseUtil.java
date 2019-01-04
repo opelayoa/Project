@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class DataBaseUtil {
 
-    public static boolean insertLog(IDatabaseManager databaseManager, String description, Long tripId, Long regionId, Long userId, Long storeId, Long truckId, Long activityId, Double odometer, Location location) {
+    public static SheetTrip insertLog(IDatabaseManager databaseManager, String description, Long tripId, Long regionId, Long userId, Long storeId, Long truckId, Long activityId, Double odometer, Location location) {
         SheetTrip sheetTrip = new SheetTrip();
         sheetTrip.setDate(new Date());
         sheetTrip.setDescription(description);
@@ -23,11 +23,12 @@ public class DataBaseUtil {
 
         sheetTrip.setLatitude(location.getLatitude());
         sheetTrip.setLongitude(location.getLongitude());
+        sheetTrip.setStatus(ShipmentConstants.STATUS_ACTIVITY_CREATED);
         try {
             databaseManager.insert(sheetTrip);
         } catch (Exception e) {
-            return false;
+            return null;
         }
-        return true;
+        return sheetTrip;
     }
 }

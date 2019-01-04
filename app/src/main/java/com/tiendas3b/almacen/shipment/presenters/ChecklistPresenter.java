@@ -7,4 +7,5 @@ public interface ChecklistPresenter {
     void getForm();
 
     void generateLog(long tripId, String message, Double odometer, Location location);
+
 }

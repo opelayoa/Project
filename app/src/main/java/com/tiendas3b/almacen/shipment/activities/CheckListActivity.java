@@ -1,7 +1,6 @@
 package com.tiendas3b.almacen.shipment.activities;
 
 import android.content.Intent;
-import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.tiendas3b.almacen.R;
 import com.tiendas3b.almacen.db.dao.Form;
@@ -20,12 +18,13 @@ import com.tiendas3b.almacen.shipment.presenters.CheckListPresenterImpl;
 import com.tiendas3b.almacen.shipment.presenters.ChecklistPresenter;
 import com.tiendas3b.almacen.shipment.util.DialogFactory;
 import com.tiendas3b.almacen.shipment.util.OdometerDialogListener;
+import com.tiendas3b.almacen.shipment.views.ActivitySenderListener;
 import com.tiendas3b.almacen.shipment.views.ChecklistView;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class CheckListActivity extends GPSBaseActivity implements ChecklistView, OdometerDialogListener {
+public class CheckListActivity extends GPSBaseActivity implements ChecklistView, OdometerDialogListener, ActivitySenderListener {
 
     private ChecklistPresenter checklistPresenter;
     private Map<Integer, CheckBox> map;
@@ -33,12 +32,16 @@ public class CheckListActivity extends GPSBaseActivity implements ChecklistView,
     private AlertDialog alertDialog;
     private long tripId;
 
+    private AlertDialog progressDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shipment_checklist);
 
         configureToolbar();
+
+        progressDialog = DialogFactory.getProgressDialog(this, "Enviando información...");
 
         Long data = getIntent().getExtras().getLong("tripId");
         if (data == null) {
@@ -77,6 +80,17 @@ public class CheckListActivity extends GPSBaseActivity implements ChecklistView,
     @Override
     public void showCheckList(Form form) {
         displayForm(form);
+    }
+
+    @Override
+    public void startProgressActivityUpload(String title) {
+        progressDialog = DialogFactory.getProgressDialog(this, "Enviando información...");
+        progressDialog.show();
+    }
+
+    @Override
+    public void stopProgressActivityUpload() {
+        progressDialog.dismiss();
     }
 
     private void displayForm(Form form) {

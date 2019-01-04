@@ -169,6 +169,7 @@ public class Shipment {
         sheetTrip.addLongProperty("activityId");
         sheetTrip.addLongProperty("userId").notNull();
         sheetTrip.addLongProperty("regionId").notNull();
+        sheetTrip.addLongProperty("status").notNull();
 
         return sheetTrip;
     }
